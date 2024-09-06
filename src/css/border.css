@@ -1,0 +1,31 @@
+.border {
+  border: 1px solid var(--dark-color);
+}
+
+.border-primary {
+  border: 1px solid var(--primary-color);
+}
+
+.border-secondary {
+  border: 1px solid var(--secnondary-color);
+}
+
+.border-dark {
+  border-color: var(--dark-color);
+}
+
+.border-gray {
+  border-color: var(--gray-color);
+}
+
+.border-b {
+  border-bottom: 1px solid var(--dark-color);
+}
+
+.rounded-0 {
+  border-radius: 0px;
+}
+
+.rounded-1 {
+  border-radius: calc(var(--spacer) * 4);
+}

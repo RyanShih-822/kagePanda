@@ -1,29 +1,24 @@
-import { useState, useEffect } from "react";
-import { getProductData } from "../models/products";
-
-import Product from "./Proudct";
+import ProductList from "./ProudctList";
 import Order from "./Order";
+import useDrinkData from "../hooks/useDrinkData";
 
 export default function Service() {
-  // fetch drink data
-  const [drinkData, setDrinkData] = useState([]);
-  useEffect(() => {
-    async function fetchGetProductData() {
-      const { data } = await getProductData();
-
-      setDrinkData(Object.entries(data));
-    }
-
-    fetchGetProductData();
-  }, []);
+  const [drinkData] = useDrinkData();
 
   if (drinkData.length === 0) {
     return <div>loading</div>;
   }
 
   return (
-    <section className="w-full d-flex justify-content-between gap-4">
-      <Product className="flex-fill" drinkData={drinkData} />
+    <section className="w-full d-flex justify-content-between align-items-start gap-4">
+      {drinkData?.map(({ title, productList }) => (
+        <ProductList
+          key={title}
+          className="flex-fill"
+          title={title}
+          productList={productList}
+        />
+      ))}
       <Order className="flex-fill" />
     </section>
   );

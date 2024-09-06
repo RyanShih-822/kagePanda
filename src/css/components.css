@@ -1,0 +1,63 @@
+.header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: calc(var(--spacer) * 4);
+
+  background: var(--light-color);
+  border-bottom: 1px solid var(--gray-color);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer {
+  width: 100%;
+  padding: calc(var(--spacer) * 4);
+
+  background: var(--light-color);
+  border-bottom: 1px solid var(--gray-color);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: calc(var(--spacer) * 4);
+  padding: calc(var(--spacer) * 4) calc(var(--spacer) * 2);
+}
+
+.btn:active {
+  background: var(--primary-color);
+  color: var(--light-color);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--light-color);
+  border-radius: calc(var(--spacer) * 4);
+  padding: calc(var(--spacer) * 4) calc(var(--spacer) * 8);
+}
+
+.divide-line {
+  border-bottom: 1px solid var(--gray-color);
+}
+
+.doalog {
+}

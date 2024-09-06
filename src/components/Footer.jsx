@@ -1,13 +1,21 @@
 export default function Footer() {
   return (
-    <footer>
-      <div>
-        <h1>logo</h1>
+    <footer className="footer">
+      <div className="container justify-content-between">
+        <h1>
+          <a href=""> logo</a>
+        </h1>
         <nav>
-          <ul>
-            <li>常見問題</li>
-            <li>聯絡我們</li>
-            <li>意見回饋</li>
+          <ul className="d-flex gap-3">
+            <li>
+              <a href="#">常見問題</a>
+            </li>
+            <li>
+              <a href="#">聯絡我們</a>
+            </li>
+            <li>
+              <a href="#">意見回饋</a>
+            </li>
           </ul>
         </nav>
       </div>

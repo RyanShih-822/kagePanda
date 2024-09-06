@@ -1,0 +1,30 @@
+.bg-body {
+  background-color: var(--body-color);
+}
+
+.bg-body-secondary {
+  background-color: var(--body-secondary-color);
+}
+
+.bg-secondary {
+  background-color: var(--secnondary-color);
+}
+
+.bg-light {
+  background-color: var(--light-color);
+}
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-secondary {
+  color: var(--secnondary-color);
+}
+
+.text-gray {
+  color: var(--gray-color);
+}
+
+.text-dark {
+  color: var(--dark-color);
+}

@@ -1,14 +1,24 @@
 export default function Header() {
   return (
-    <header>
-      <h1>sites logo</h1>
-      <nav>
-        <ul>
-          <li>home</li>
-          <li>menu</li>
-          <li>order</li>
-        </ul>
-      </nav>
+    <header className="header">
+      <div className="container justify-content-between">
+        <h1>
+          <a href="">sites logo</a>
+        </h1>
+        <nav>
+          <ul className="d-flex gap-3">
+            <li>
+              <a href="">home</a>
+            </li>
+            <li>
+              <a href="">menu</a>
+            </li>
+            <li>
+              <a href="">order</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 }

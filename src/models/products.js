@@ -9,8 +9,10 @@ function waitFor() {
 export async function getProductData() {
   await waitFor();
 
+  const [drinkArrData] = Object.values(ENUM_DRINKDATA);
+
   if (!localStorage.getItem("drinkData")) {
-    localStorage.setItem("drinkData", JSON.stringify(ENUM_DRINKDATA));
+    localStorage.setItem("drinkData", JSON.stringify(drinkArrData));
   }
 
   return {
