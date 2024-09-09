@@ -8,6 +8,25 @@ export const ENUM_ICELEVELS = {
   hot: "熱",
 };
 
+export const ENUM_SUGAR = {
+  verySweet: "多糖",
+  sweet: "標準甜",
+  lessSweet: "八分糖",
+  halfSweet: "半糖",
+  lightSweet: "微糖",
+  veryLightSweet: "一分糖",
+  noSugar: "無糖",
+};
+
+export const ENUM_TOPPINGS = {
+  tapiocaPearls: "白玉珍珠",
+  coconutJelly: "椰果",
+  basilSeeds: "羅勒子",
+  aiyuJelly: "愛玉【不可加熱飲】",
+  crystalBalls: "晶球啵啵【不可加熱飲】",
+  bobaPearls: "波霸珍珠",
+};
+
 export const ENUM_DRINKDATA = {
   drinkData: [
     {
@@ -20,6 +39,8 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e56d50_dRCuEvtA.png",
           price: 35,
           iceLevel: ENUM_ICELEVELS,
+          sugar: ENUM_SUGAR,
+          toppings: ENUM_TOPPINGS,
         },
         {
           id: "plainTea002",
@@ -28,6 +49,8 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e53f56_2XlxcwY7.jpg",
           price: 30,
           iceLevel: ENUM_ICELEVELS,
+          sugar: ENUM_SUGAR,
+          toppings: ENUM_TOPPINGS,
         },
         {
           id: "plainTea003",
@@ -36,6 +59,8 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e56e7f_ul6DAesX.png",
           price: 30,
           iceLevel: ENUM_ICELEVELS,
+          sugar: ENUM_SUGAR,
+          toppings: ENUM_TOPPINGS,
         },
         {
           id: "plainTea004",
@@ -44,6 +69,8 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e56c36_EjITfB0A.png",
           price: 30,
           iceLevel: ENUM_ICELEVELS,
+          sugar: ENUM_SUGAR,
+          toppings: ENUM_TOPPINGS,
         },
         {
           id: "plainTea005",
@@ -52,6 +79,8 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e56e98_bKmnUqXE.png",
           price: 45,
           iceLevel: ENUM_ICELEVELS,
+          sugar: ENUM_SUGAR,
+          toppings: ENUM_TOPPINGS,
         },
         {
           id: "plainTea006",
@@ -60,6 +89,8 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e56bd1_MOTzytbE.png",
           price: 30,
           iceLevel: ENUM_ICELEVELS,
+          sugar: ENUM_SUGAR,
+          toppings: ENUM_TOPPINGS,
         },
         {
           id: "plainTea007",
@@ -68,6 +99,8 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e56d9b_kIqOnoeP.png",
           price: 30,
           iceLevel: ENUM_ICELEVELS,
+          sugar: ENUM_SUGAR,
+          toppings: ENUM_TOPPINGS,
         },
         {
           id: "plainTea008",
@@ -76,6 +109,8 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e7cec8_J4f0ptX3.png",
           price: 30,
           iceLevel: ENUM_ICELEVELS,
+          sugar: ENUM_SUGAR,
+          toppings: ENUM_TOPPINGS,
         },
         {
           id: "plainTea009",
@@ -84,6 +119,8 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e56ed7_E5eWoiQg.png",
           price: 30,
           iceLevel: ENUM_ICELEVELS,
+          sugar: ENUM_SUGAR,
+          toppings: ENUM_TOPPINGS,
         },
         {
           id: "plainTea010",
@@ -92,6 +129,8 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e7ce90_Z6oJ5sjp.png",
           price: 30,
           iceLevel: ENUM_ICELEVELS,
+          sugar: ENUM_SUGAR,
+          toppings: ENUM_TOPPINGS,
         },
         {
           id: "plainTea011",
@@ -100,6 +139,8 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e7ce90_Z6oJ5sjp.png",
           price: 30,
           iceLevel: ENUM_ICELEVELS,
+          sugar: ENUM_SUGAR,
+          toppings: ENUM_TOPPINGS,
         },
       ],
     },
@@ -113,6 +154,8 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e58070_P4EOC5ZM.png",
           price: 60,
           iceLevel: ENUM_ICELEVELS,
+          sugar: ENUM_SUGAR,
+          toppings: ENUM_TOPPINGS,
         },
         {
           id: "freshTea002",
@@ -121,6 +164,8 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e57e9b_YEzVrDJK.png",
           price: 45,
           iceLevel: ENUM_ICELEVELS,
+          sugar: ENUM_SUGAR,
+          toppings: ENUM_TOPPINGS,
         },
         {
           id: "freshTea003",
@@ -129,6 +174,8 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e57fbe_13BrHTeA.png",
           price: 55,
           iceLevel: ENUM_ICELEVELS,
+          sugar: ENUM_SUGAR,
+          toppings: ENUM_TOPPINGS,
         },
         {
           id: "freshTea004",
@@ -137,6 +184,8 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e57f68_buqf1G5p.png",
           price: 55,
           iceLevel: ENUM_ICELEVELS,
+          sugar: ENUM_SUGAR,
+          toppings: ENUM_TOPPINGS,
         },
         {
           id: "freshTea005",
@@ -145,6 +194,8 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e57ee7_GrQz07LR.png",
           price: 55,
           iceLevel: ENUM_ICELEVELS,
+          sugar: ENUM_SUGAR,
+          toppings: ENUM_TOPPINGS,
         },
         {
           id: "freshTea006",
@@ -153,6 +204,8 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e58011_lqf3PCnV.png",
           price: 60,
           iceLevel: ENUM_ICELEVELS,
+          sugar: ENUM_SUGAR,
+          toppings: ENUM_TOPPINGS,
         },
         {
           id: "freshTea007",
@@ -161,6 +214,8 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e580a6_ShsikJQX.png",
           price: 65,
           iceLevel: ENUM_ICELEVELS,
+          sugar: ENUM_SUGAR,
+          toppings: ENUM_TOPPINGS,
         },
         {
           id: "freshTea008",
@@ -169,6 +224,8 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e57e5e_hOuTFgvk.png",
           price: 40,
           iceLevel: ENUM_ICELEVELS,
+          sugar: ENUM_SUGAR,
+          toppings: ENUM_TOPPINGS,
         },
         {
           id: "freshTea009",
@@ -177,6 +234,8 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e57f1f_sIRAc5UC.png",
           price: 40,
           iceLevel: ENUM_ICELEVELS,
+          sugar: ENUM_SUGAR,
+          toppings: ENUM_TOPPINGS,
         },
       ],
     },

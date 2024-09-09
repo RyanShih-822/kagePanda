@@ -6,6 +6,10 @@
   background-color: var(--body-secondary-color);
 }
 
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
 .bg-secondary {
   background-color: var(--secnondary-color);
 }
@@ -13,6 +17,11 @@
 .bg-light {
   background-color: var(--light-color);
 }
+
+.bg-none {
+  background-color: unset;
+}
+
 .text-primary {
   color: var(--primary-color);
 }
@@ -27,4 +36,8 @@
 
 .text-dark {
   color: var(--dark-color);
+}
+
+.text-light {
+  color: var(--light-color);
 }

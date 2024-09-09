@@ -1,21 +1,23 @@
-import { useEffect, useRef } from "react";
+import { forwardRef } from "react";
 
-export default function Dialog({ openModal, closeModel, children }) {
-  const ref = useRef(null);
+import { Button } from "../ui";
 
-  useEffect(() => {
-    if (openModal) {
-      ref.current?.showModal();
-    } else {
-      ref.current?.close();
-    }
-  }, [openModal]);
+export default forwardRef(function Dialog({ title, onClose, children }, ref) {
   return (
-    <dialog open={openModal} ref={ref} onCancel={closeModel}>
-      {children}
-      <button type="button" onClick={closeModel}>
-        加入購物車
-      </button>
+    <dialog ref={ref} className="dialog">
+      <div className="h-full  d-flex flex-column">
+        <div className="d-flex justify-content-between align-items-center p-4">
+          <h3>{title}</h3>
+          <Button
+            type="button"
+            className="text-gray bg-none fs-1 px-3 py-1"
+            onClick={onClose}
+          >
+            &times;
+          </Button>
+        </div>
+        {children}
+      </div>
     </dialog>
   );
-}
+});

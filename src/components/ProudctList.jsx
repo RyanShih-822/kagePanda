@@ -6,13 +6,11 @@ export default function ProductList({ title, productList, ...props }) {
     <Card {...props}>
       <h2 className="text-primary">{title}</h2>
       <ul className="py-4">
-        {productList?.map(({ id, name, price, image }, index) => (
+        {productList?.map(({ id, ...item }, index) => (
           <ProductItem
             key={id}
-            className={index !== productList?.length - 1 && "divide-line"}
-            productName={name}
-            productPrice={price}
-            image={image}
+            className={index !== productList?.length - 1 ? "divide-line" : ""}
+            {...item}
           />
         ))}
       </ul>

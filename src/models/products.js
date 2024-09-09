@@ -1,6 +1,6 @@
 import { ENUM_DRINKDATA, ENUM_OrderDATA } from "../assets/drinkData.js";
 
-const delayTime = 2000;
+const delayTime = 0;
 
 function waitFor() {
   return new Promise((resolve) => setTimeout(resolve, delayTime));
@@ -9,10 +9,25 @@ function waitFor() {
 export async function getProductData() {
   await waitFor();
 
-  const [drinkArrData] = Object.values(ENUM_DRINKDATA);
-
   if (!localStorage.getItem("drinkData")) {
-    localStorage.setItem("drinkData", JSON.stringify(drinkArrData));
+    const [drinkArrData] = Object.values(ENUM_DRINKDATA);
+
+    const editDrinkArrData = drinkArrData.map(({ productList, ...item }) => {
+      const editProductList = productList.map(
+        ({ iceLevel, sugar, toppings, ...item }) => {
+          return {
+            ...item,
+            iceLevel: Object.entries(iceLevel),
+            sugar: Object.entries(sugar),
+            toppings: Object.entries(toppings),
+          };
+        }
+      );
+
+      return { ...item, productList: editProductList };
+    });
+
+    localStorage.setItem("drinkData", JSON.stringify(editDrinkArrData));
   }
 
   return {
@@ -34,7 +49,15 @@ export async function getOrderData() {
   };
 }
 
-export async function updateOrderData({ orderId, user, meals, id, iceLevel }) {
+export async function updateOrderData({
+  orderId,
+  user,
+  drinks,
+  id,
+  iceLevel,
+  sugar,
+  toppings,
+}) {
   await waitFor();
 
   if (!localStorage.getItem("orderData")) {
@@ -43,9 +66,11 @@ export async function updateOrderData({ orderId, user, meals, id, iceLevel }) {
     const orderData = {
       orderId,
       user,
-      meals,
+      drinks,
       id,
       iceLevel,
+      sugar,
+      toppings,
     };
 
     const DbOrderData = JSON.parse(localStorage.getItem("orderData"));
@@ -53,17 +78,35 @@ export async function updateOrderData({ orderId, user, meals, id, iceLevel }) {
     localStorage.setItem("orderData", JSON.stringify(DbOrderData));
   } else {
     const DbOrderData = JSON.parse(localStorage.getItem("orderData"));
-    DbOrderData.orderData.map((item) => {
-      return item.orderId === orderId
-        ? {
-            orderId,
-            user,
-            meals,
-            id,
-            iceLevel,
-          }
-        : item;
-    });
+    const isInDb = DbOrderData.find((item) => item.orderId === orderId);
+
+    if (isInDb) {
+      const newOrderData = DbOrderData.orderData.map((item) => {
+        return item.orderId === orderId
+          ? {
+              orderId,
+              user,
+              drinks,
+              id,
+              iceLevel,
+              sugar,
+              toppings,
+            }
+          : item;
+      });
+    } else {
+      DbOrderData.orderData.push({
+        orderId,
+        user,
+        drinks,
+        id,
+        iceLevel,
+        sugar,
+        toppings,
+      });
+    }
+
+    localStorage.setItem("orderData", JSON.stringify(DbOrderData));
   }
 
   return {

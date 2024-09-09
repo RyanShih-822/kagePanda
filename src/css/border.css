@@ -18,8 +18,20 @@
   border-color: var(--gray-color);
 }
 
+.border-none {
+  border: none;
+}
+
+.border-t {
+  border-top: 1px solid var(--dark-color);
+}
+
 .border-b {
   border-bottom: 1px solid var(--dark-color);
+}
+
+.border-gray {
+  border-color: var(--gray-color);
 }
 
 .rounded-0 {
