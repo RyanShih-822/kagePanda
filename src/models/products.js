@@ -12,22 +12,7 @@ export async function getProductData() {
   if (!localStorage.getItem("drinkData")) {
     const [drinkArrData] = Object.values(ENUM_DRINKDATA);
 
-    const editDrinkArrData = drinkArrData.map(({ productList, ...item }) => {
-      const editProductList = productList.map(
-        ({ iceLevel, sugar, toppings, ...item }) => {
-          return {
-            ...item,
-            iceLevel: Object.entries(iceLevel),
-            sugar: Object.entries(sugar),
-            toppings: Object.entries(toppings),
-          };
-        }
-      );
-
-      return { ...item, productList: editProductList };
-    });
-
-    localStorage.setItem("drinkData", JSON.stringify(editDrinkArrData));
+    localStorage.setItem("drinkData", JSON.stringify(drinkArrData));
   }
 
   return {
@@ -40,7 +25,9 @@ export async function getOrderData() {
   await waitFor();
 
   if (!localStorage.getItem("orderData")) {
-    localStorage.setItem("orderData", JSON.stringify(ENUM_OrderDATA));
+    const [orderArrData] = Object.values(ENUM_OrderDATA);
+
+    localStorage.setItem("orderData", JSON.stringify(orderArrData));
   }
 
   return {
@@ -49,7 +36,38 @@ export async function getOrderData() {
   };
 }
 
-export async function updateOrderData({
+export async function createOrderData({
+  orderId,
+  user,
+  drinks,
+  id,
+  configOption,
+  numbers,
+}) {
+  await waitFor();
+
+  const orderData = {
+    orderId,
+    user,
+    drinks,
+    id,
+    configOption,
+    numbers,
+  };
+
+  const DbOrderData = JSON.parse(localStorage.getItem("orderData")) || [];
+
+  DbOrderData.push(orderData);
+
+  localStorage.setItem("orderData", JSON.stringify(DbOrderData));
+
+  return {
+    status: "success",
+    data: "successfully update order data",
+  };
+}
+
+export async function editOrderData({
   orderId,
   user,
   drinks,
@@ -60,54 +78,25 @@ export async function updateOrderData({
 }) {
   await waitFor();
 
-  if (!localStorage.getItem("orderData")) {
-    localStorage.setItem("orderData", JSON.stringify(ENUM_OrderDATA));
+  const orderData = {
+    orderId,
+    user,
+    drinks,
+    id,
+    iceLevel,
+    sugar,
+    toppings,
+  };
 
-    const orderData = {
-      orderId,
-      user,
-      drinks,
-      id,
-      iceLevel,
-      sugar,
-      toppings,
-    };
+  const DbOrderData = JSON.parse(localStorage.getItem("orderData")) || [];
 
-    const DbOrderData = JSON.parse(localStorage.getItem("orderData"));
-    DbOrderData.orderData.push(orderData);
-    localStorage.setItem("orderData", JSON.stringify(DbOrderData));
-  } else {
-    const DbOrderData = JSON.parse(localStorage.getItem("orderData"));
-    const isInDb = DbOrderData.find((item) => item.orderId === orderId);
+  const orderIndex = DbOrderData?.findIndex(
+    (item) => item?.orderId === orderId
+  );
 
-    if (isInDb) {
-      const newOrderData = DbOrderData.orderData.map((item) => {
-        return item.orderId === orderId
-          ? {
-              orderId,
-              user,
-              drinks,
-              id,
-              iceLevel,
-              sugar,
-              toppings,
-            }
-          : item;
-      });
-    } else {
-      DbOrderData.orderData.push({
-        orderId,
-        user,
-        drinks,
-        id,
-        iceLevel,
-        sugar,
-        toppings,
-      });
-    }
+  DbOrderData[orderIndex] = orderData;
 
-    localStorage.setItem("orderData", JSON.stringify(DbOrderData));
-  }
+  localStorage.setItem("orderData", JSON.stringify(DbOrderData));
 
   return {
     status: "success",

@@ -10,6 +10,7 @@ export default function ProductList({ title, productList, ...props }) {
           <ProductItem
             key={id}
             className={index !== productList?.length - 1 ? "divide-line" : ""}
+            id={id}
             {...item}
           />
         ))}

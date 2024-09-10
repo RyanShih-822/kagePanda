@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getProductData } from "../models/products";
 
-export default function useDrinkData() {
+export default function useGetDrinkData() {
   const [drinkData, setDrinkData] = useState([]);
   useEffect(() => {
     async function fetchGetProductData() {

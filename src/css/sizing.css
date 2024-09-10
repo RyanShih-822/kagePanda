@@ -1,3 +1,7 @@
+.min-w-10 {
+  min-width: calc(var(--spacer)) * 10;
+}
+
 .w-1\/4 {
   width: 25%;
 }

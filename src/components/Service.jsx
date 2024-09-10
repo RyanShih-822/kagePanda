@@ -1,16 +1,16 @@
 import ProductList from "./ProudctList";
 import Order from "./Order";
-import useDrinkData from "../hooks/useDrinkData";
+import useGetDrinkData from "../hooks/useGetDrinkData.jsx";
 
 export default function Service() {
-  const [drinkData] = useDrinkData();
+  const [drinkData] = useGetDrinkData();
 
   if (drinkData.length === 0) {
     return <div>loading</div>;
   }
 
   return (
-    <section className="w-full d-flex justify-content-between align-items-start gap-4">
+    <section className="w-full d-flex flex-wrap justify-content-between align-items-start gap-4">
       {drinkData?.map(({ title, productList }) => (
         <ProductList
           key={title}
@@ -19,6 +19,7 @@ export default function Service() {
           productList={productList}
         />
       ))}
+
       <Order className="flex-fill" />
     </section>
   );

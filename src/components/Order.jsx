@@ -1,6 +1,12 @@
 import { Card, Button } from "../ui";
 
+import useGetOrderData from "../hooks/useGetOrderData";
+
 export default function Order({ ...props }) {
+  const [orderData] = useGetOrderData();
+
+  console.log(orderData);
+
   return (
     <aside className="h-full" style={{ width: "352px" }}>
       <Card {...props}>

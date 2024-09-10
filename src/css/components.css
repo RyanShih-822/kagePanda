@@ -42,16 +42,16 @@
   padding: calc(var(--spacer) * 4) calc(var(--spacer) * 2);
 }
 
-.btn:hover {
+.btn:hover:not(:disabled) {
   background: var(--primary-color);
   color: var(--light-color);
 }
 
-.btn:focus {
+.btn:focus:not(:disabled) {
   outline: none;
 }
 
-.btn:active {
+.btn:active:not(:disabled) {
   background: var(--primary-color);
   color: var(--light-color);
 }
@@ -69,10 +69,15 @@
   border-bottom: 1px solid var(--gray-color);
 }
 
-.dialog {
+.dialog[open]::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.dialog[open] {
+  opacity: 1;
+  transform: scaleY(1) translate(-50%, -50%);
   border: none;
   margin: 0;
-  transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
   background-color: var(--light-color);
@@ -83,10 +88,29 @@
   overflow: hidden;
 }
 
-.dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.7);
+/* .dialog {
+  opacity: 0;
+  transform: scaleY(0);
+  transition: all 0.5s allow-discrete;
 }
 
+.dialog::backdrop {
+  background-color: transparent;
+  transition: all 0.5s allow-discrete;
+}
+
+@starting-style {
+  .dialog[open] {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+}
+
+@starting-style {
+  .dialog[open]::backdrop {
+    background-color: transparent;
+  }
+} */
 html:has(.dialog[open]) {
   overflow: hidden;
 }

@@ -28,6 +28,11 @@ body {
   font-style: normal;
 }
 
+main {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
 ul {
   list-style: none;
 }

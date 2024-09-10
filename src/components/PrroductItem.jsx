@@ -4,11 +4,11 @@ import ProductForm from "./ProdudctForm";
 import useDialog from "../hooks/useDialog";
 
 const buttonStyle =
-  "m-3 cursor-pointer w-full d-flex justify-content-between align-items-center border-none bg-none ";
+  "m-3 p-4 cursor-pointer w-full d-flex justify-content-between align-items-center border-none bg-none ";
 
 export default function ProductItem({ className, ...props }) {
   const { ref, onOpen, onClose } = useDialog();
-  const { name, price, image, iceLevel, sugar, toppings } = props;
+  const { id, name, price, image, optionConf } = props;
 
   return (
     <>
@@ -21,14 +21,14 @@ export default function ProductItem({ className, ...props }) {
           <div className="d-flex">{parseInt(price)}</div>
         </Button>
       </li>
+
       <Dialog title={name} ref={ref} onClose={onClose}>
         <ProductForm
+          id={id}
           name={name}
           price={price}
           image={image}
-          iceLevel={iceLevel}
-          sugar={sugar}
-          toppings={toppings}
+          optionConf={optionConf}
         />
       </Dialog>
     </>
