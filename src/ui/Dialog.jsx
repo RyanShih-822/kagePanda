@@ -1,3 +1,4 @@
+import { createPortal } from "react-dom";
 import { forwardRef } from "react";
 
 import { Button } from "../ui";
@@ -10,7 +11,7 @@ export default forwardRef(function Dialog({ title, onClose, children }, ref) {
           <h3>{title}</h3>
           <Button
             type="button"
-            className="text-gray bg-none fs-1 px-3 py-1"
+            className="btn-transparent fs-1 px-3 py-1"
             onClick={onClose}
           >
             &times;

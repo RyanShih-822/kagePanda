@@ -1,4 +1,6 @@
-import { createContext, useCallback, useMemo, useState } from "react";
+import { createContext, useMemo } from "react";
+
+import useGetOrderData from "../hooks/useGetOrderData";
 
 const defaultOrder = {
   orderId: "1",
@@ -9,25 +11,17 @@ const defaultOrder = {
   toppings: "椰果",
 };
 
-export const OrderContext = createContext(defaultOrder);
+export const OrderContext = createContext([defaultOrder]);
 
 export function OrderContextProvider({ children }) {
-  const [orderData, setOrderData] = useState({});
-
-  const updateOrder = useCallback(
-    async ({ orderId, drinks, id, iceLevel, sugar, toppings }) => {
-      const uuid = crypto.randomUUID();
-      setOrderData({ orderId: uuid, drinks, id, iceLevel, sugar, toppings });
-    },
-    []
-  );
+  const { data, getOrderDataHandler } = useGetOrderData();
 
   const contextValue = useMemo(
     () => ({
-      orderData,
-      updateOrder,
+      data,
+      getOrderDataHandler,
     }),
-    [orderData, updateOrder]
+    [data, getOrderDataHandler]
   );
 
   return (

@@ -2,7 +2,7 @@ import { Card, Carousel } from "../ui";
 
 export default function Banner() {
   return (
-    <section className="d-flex w-full">
+    <section className="d-flex w-full ">
       <Card className="w-full flex-row p-0">
         <div className="d-flex flex-fill">
           <a href="">

@@ -1,18 +1,4 @@
-.header {
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  padding: calc(var(--spacer) * 4);
-
-  background: var(--light-color);
-  border-bottom: 1px solid var(--gray-color);
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
+.header,
 .footer {
   width: 100%;
   padding: calc(var(--spacer) * 4);
@@ -25,6 +11,12 @@
   align-items: center;
 }
 
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -34,28 +26,6 @@
   align-items: center;
 }
 
-.btn {
-  display: block;
-  cursor: pointer;
-  border: none;
-  border-radius: calc(var(--spacer) * 4);
-  padding: calc(var(--spacer) * 4) calc(var(--spacer) * 2);
-}
-
-.btn:hover:not(:disabled) {
-  background: var(--primary-color);
-  color: var(--light-color);
-}
-
-.btn:focus:not(:disabled) {
-  outline: none;
-}
-
-.btn:active:not(:disabled) {
-  background: var(--primary-color);
-  color: var(--light-color);
-}
-
 .card {
   position: relative;
   display: flex;
@@ -63,54 +33,4 @@
   background: var(--light-color);
   border-radius: calc(var(--spacer) * 4);
   padding: calc(var(--spacer) * 4) calc(var(--spacer) * 8);
-}
-
-.divide-line {
-  border-bottom: 1px solid var(--gray-color);
-}
-
-.dialog[open]::backdrop {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.dialog[open] {
-  opacity: 1;
-  transform: scaleY(1) translate(-50%, -50%);
-  border: none;
-  margin: 0;
-  top: 50%;
-  left: 50%;
-  background-color: var(--light-color);
-  max-width: 560px;
-  height: 85vh;
-  height: 85dvh;
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-/* .dialog {
-  opacity: 0;
-  transform: scaleY(0);
-  transition: all 0.5s allow-discrete;
-}
-
-.dialog::backdrop {
-  background-color: transparent;
-  transition: all 0.5s allow-discrete;
-}
-
-@starting-style {
-  .dialog[open] {
-    opacity: 0;
-    transform: scaleY(0);
-  }
-}
-
-@starting-style {
-  .dialog[open]::backdrop {
-    background-color: transparent;
-  }
-} */
-html:has(.dialog[open]) {
-  overflow: hidden;
 }

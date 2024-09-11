@@ -3,17 +3,23 @@ import ProductForm from "./ProdudctForm";
 
 import useDialog from "../hooks/useDialog";
 
-const buttonStyle =
-  "m-3 p-4 cursor-pointer w-full d-flex justify-content-between align-items-center border-none bg-none ";
-
-export default function ProductItem({ className, ...props }) {
+export default function ProductItem({
+  className,
+  id,
+  name,
+  price,
+  image,
+  optionConf,
+}) {
   const { ref, onOpen, onClose } = useDialog();
-  const { id, name, price, image, optionConf } = props;
 
   return (
     <>
       <li className={className}>
-        <Button onClick={onOpen} className={buttonStyle}>
+        <Button
+          onClick={onOpen}
+          className="btn-transparent m-3 p-4  w-full d-flex justify-content-between align-items-center"
+        >
           <div>
             <img className="bg-gray" src={image} alt="商品圖片" />
           </div>
@@ -29,6 +35,7 @@ export default function ProductItem({ className, ...props }) {
           price={price}
           image={image}
           optionConf={optionConf}
+          onClose={onClose}
         />
       </Dialog>
     </>

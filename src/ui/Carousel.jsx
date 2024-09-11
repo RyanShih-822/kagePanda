@@ -2,12 +2,12 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 export default function Carousel() {
-  const [emblaRef] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ playOnInit: true, delay: 1500 }),
-  ]);
-
+  // const [emblaRef] = useEmblaCarousel({ loop: true }, [
+  //   Autoplay({ playOnInit: true, delay: 1500 }),
+  // ]);
+  // ref={emblaRef}
   return (
-    <div className="embla flex-fill" ref={emblaRef}>
+    <div className="embla flex-fill">
       <div className="embla__container">
         <div className="embla__slide">
           <img src="/banner1.jpg" alt="banner1" />

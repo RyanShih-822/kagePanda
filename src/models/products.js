@@ -1,6 +1,6 @@
 import { ENUM_DRINKDATA, ENUM_OrderDATA } from "../assets/drinkData.js";
 
-const delayTime = 0;
+const delayTime = 1000;
 
 function waitFor() {
   return new Promise((resolve) => setTimeout(resolve, delayTime));
@@ -30,6 +30,8 @@ export async function getOrderData() {
     localStorage.setItem("orderData", JSON.stringify(orderArrData));
   }
 
+  console.log(JSON.parse(localStorage.getItem("orderData")));
+
   return {
     status: "success",
     data: JSON.parse(localStorage.getItem("orderData")),
@@ -38,26 +40,32 @@ export async function getOrderData() {
 
 export async function createOrderData({
   orderId,
-  user,
-  drinks,
-  id,
-  configOption,
+  drinkId,
+  orderConfig,
   numbers,
 }) {
   await waitFor();
 
   const orderData = {
     orderId,
-    user,
-    drinks,
-    id,
-    configOption,
+    drinkId,
+    orderConfig,
     numbers,
   };
 
   const DbOrderData = JSON.parse(localStorage.getItem("orderData")) || [];
+  const DbDrinkData = JSON.parse(localStorage.getItem("drinkData"));
 
-  DbOrderData.push(orderData);
+  const chooseDrinkData = DbDrinkData?.map((item) => item.productList)
+    .flat()
+    .find((product) => product.id === drinkId);
+
+  const { id, ...otherDrinkData } = chooseDrinkData;
+
+  DbOrderData.push({
+    ...otherDrinkData,
+    ...orderData,
+  });
 
   localStorage.setItem("orderData", JSON.stringify(DbOrderData));
 

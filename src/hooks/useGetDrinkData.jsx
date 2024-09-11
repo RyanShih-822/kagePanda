@@ -1,17 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { getProductData } from "../models/products";
 
 export default function useGetDrinkData() {
   const [drinkData, setDrinkData] = useState([]);
-  useEffect(() => {
-    async function fetchGetProductData() {
-      const { data } = await getProductData();
+  const [isLoading, setIsLoading] = useState(false);
 
-      setDrinkData(data);
-    }
-
-    fetchGetProductData();
+  const getProductDataHandler = useCallback(async () => {
+    setIsLoading(true);
+    const { data } = await getProductData();
+    setDrinkData(data);
+    setIsLoading(false);
   }, []);
 
-  return [drinkData, setDrinkData];
+  useEffect(() => {
+    getProductDataHandler();
+  }, [getProductDataHandler]);
+
+  return { data: drinkData, isLoading, setDrinkData };
 }

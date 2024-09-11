@@ -30,6 +30,10 @@
   border-bottom: 1px solid var(--dark-color);
 }
 
+.border-b-gray {
+  border-bottom: 1px solid var(--gray-color);
+}
+
 .border-gray {
   border-color: var(--gray-color);
 }

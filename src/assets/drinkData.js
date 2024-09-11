@@ -1,30 +1,30 @@
 export const ENUM_ICELEVELS = [
-  ["normalIce", "正常冰"],
-  ["lessIce", "少冰"],
-  ["lightIce", "微冰"],
-  ["noIce", "去冰"],
-  ["normal", "常溫"],
-  ["warm", "溫"],
-  ["hot", "熱"],
+  { title: "normalIce", name: "正常冰" },
+  { title: "lessIce", name: "少冰" },
+  { title: "lightIce", name: "微冰" },
+  { title: "noIce", name: "去冰" },
+  { title: "normal", name: "常溫" },
+  { title: "warm", name: "溫" },
+  { title: "hot", name: "熱" },
 ];
 
 export const ENUM_SUGAR = [
-  ["verySweet", "多糖"],
-  ["sweet", "標準甜"],
-  ["lessSweet", "八分糖"],
-  ["halfSweet", "半糖"],
-  ["lightSweet", "微糖"],
-  ["veryLightSweet", "一分糖"],
-  ["noSugar", "無糖"],
+  { title: "verySweet", name: "多糖" },
+  { title: "sweet", name: "標準甜" },
+  { title: "lessSweet", name: "八分糖" },
+  { title: "halfSweet", name: "半糖" },
+  { title: "lightSweet", name: "微糖" },
+  { title: "veryLightSweet", name: "一分糖" },
+  { title: "noSugar", name: "無糖" },
 ];
 
 export const ENUM_TOPPINGS = [
-  ["tapiocaPearls", "白玉珍珠"],
-  ["coconutJelly", "椰果"],
-  ["basilSeeds", "羅勒子"],
-  ["aiyuJelly", "愛玉【不可加熱飲】"],
-  ["crystalBalls", "晶球啵啵【不可加熱飲】"],
-  ["bobaPearls", "波霸珍珠"],
+  { title: "tapiocaPearls", name: "白玉珍珠" },
+  { title: "coconutJelly", name: "椰果" },
+  { title: "basilSeeds", name: "羅勒子" },
+  { title: "aiyuJelly", name: "愛玉【不可加熱飲】" },
+  { title: "crystalBalls", name: "晶球啵啵【不可加熱飲】" },
+  { title: "bobaPearls", name: "波霸珍珠" },
 ];
 
 export const ENUM_DRINKDATA = {

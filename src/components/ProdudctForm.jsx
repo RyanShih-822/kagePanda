@@ -1,15 +1,28 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 import { Button } from "../ui";
 import FormOptions from "./FormOptions";
 import InputNumber from "./InputNumber";
 
 import useInputNumber from "../hooks/useInputNumber";
+import useCreateOrderData from "../hooks/useCreateOrderData";
+import { OrderContext } from "../context/orderContext";
 
-import { createOrderData } from "../models/products";
+const defaultConfigOption = {
+  iceLevels: null,
+  sugar: null,
+  toppings: null,
+};
 
-export default function ProductForm({ id, name, price, image, optionConf }) {
-  const { counter, updateCounterHandler } = useInputNumber(1, 1);
+export default function ProductForm({
+  id,
+  price,
+  image,
+  optionConf,
+  onClose,
+  values = 1,
+}) {
+  const { counter, updateCounterHandler } = useInputNumber(values);
   const incrementHandler = () => {
     updateCounterHandler("add");
   };
@@ -18,23 +31,21 @@ export default function ProductForm({ id, name, price, image, optionConf }) {
   };
 
   // cart logic
-  const [configOption, setConfigOption] = useState({
-    iceLevels: "",
-    sugar: "",
-    toppings: "",
-  });
+  const { loading, createOrderDataHandler } = useCreateOrderData();
+  const { getOrderDataHandler } = useContext(OrderContext);
+  const [orderConfig, setOrderConfig] = useState(defaultConfigOption);
 
-  const addConfigOptionHandler = (type, value) => {
-    setConfigOption({
-      ...configOption,
+  const updateConfigOptionHandler = (type, value) => {
+    setOrderConfig({
+      ...orderConfig,
       [type]: value,
     });
   };
 
   const isValidOption = !!(
-    configOption?.iceLevels &&
-    configOption?.sugar &&
-    configOption?.toppings &&
+    orderConfig?.iceLevels &&
+    orderConfig?.sugar &&
+    orderConfig?.toppings &&
     counter
   );
 
@@ -45,14 +56,15 @@ export default function ProductForm({ id, name, price, image, optionConf }) {
 
     const orderData = {
       orderId: crypto.randomUUID(),
-      drinks: name,
-      id,
-      configOption: { ...configOption },
+      drinkId: id,
+      orderConfig,
       numbers: counter,
     };
-    const res = await createOrderData(orderData);
+    await createOrderDataHandler(orderData);
 
-    console.log(res);
+    setOrderConfig(defaultConfigOption);
+    onClose();
+    getOrderDataHandler();
   };
 
   return (
@@ -69,7 +81,8 @@ export default function ProductForm({ id, name, price, image, optionConf }) {
               id={item.configId}
               optionTitle={item.title}
               optionDataArr={item.dataArr}
-              addConfigOptionHandler={addConfigOptionHandler}
+              updateConfigOptionHandler={updateConfigOptionHandler}
+              orderConfig={orderConfig}
             />
           ))}
         </div>
@@ -81,16 +94,17 @@ export default function ProductForm({ id, name, price, image, optionConf }) {
           <span>{price * counter}元</span>
           <InputNumber
             value={counter}
+            min={1}
             incrementHandler={incrementHandler}
             decrementHandler={decrementHandler}
           />
         </div>
         <Button
           disabled={!isValidOption}
-          className={!isValidOption ? "" : "bg-primary text-light"}
+          className={!isValidOption ? "" : "btn-primary"}
           onClick={addCartHandler}
         >
-          加入購物車
+          {loading ? "等待中" : "加入購物車"}
         </Button>
       </footer>
     </>

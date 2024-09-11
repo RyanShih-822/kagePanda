@@ -9,7 +9,7 @@ export default function ProductList({ title, productList, ...props }) {
         {productList?.map(({ id, ...item }, index) => (
           <ProductItem
             key={id}
-            className={index !== productList?.length - 1 ? "divide-line" : ""}
+            className={index !== productList?.length - 1 ? "border-b-gray" : ""}
             id={id}
             {...item}
           />
