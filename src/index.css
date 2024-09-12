@@ -15,6 +15,9 @@
 @import url("./css//text.css");
 @import url("./css//font.css");
 @import url("./css//overflow.css");
+@import url("./css//whitespace.css");
+@import url("./css/textarea.css");
+@import url("./css/input.css");
 
 * {
   box-sizing: border-box;

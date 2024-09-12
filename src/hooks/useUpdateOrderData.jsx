@@ -6,7 +6,7 @@ export default function useUpdateOrderData() {
   const [loading, setIsLoading] = useState(false);
 
   const updateOrderDataHandler = useCallback(
-    async ({ orderId, drinkId, orderConfig, numbers }) => {
+    async ({ orderId, drinkId, orderConfig, numbers, user, comment }) => {
       setIsLoading(true);
 
       const res = await updateOrderData({
@@ -14,6 +14,8 @@ export default function useUpdateOrderData() {
         drinkId,
         orderConfig,
         numbers,
+        user,
+        comment,
       });
 
       if (res.status !== "success") {

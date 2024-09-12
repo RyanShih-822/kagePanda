@@ -8,19 +8,17 @@ export default function Dialog() {
 
   return (
     <dialog ref={ref} className="dialog">
-      <div className="h-full  d-flex flex-column">
-        <div className="d-flex justify-content-between align-items-center p-4">
-          <h3>{title}</h3>
-          <Button
-            type="button"
-            className="btn-transparent fs-1 px-3 py-1"
-            onClick={onClose}
-          >
-            &times;
-          </Button>
-        </div>
-        {component}
+      <div className="d-flex justify-content-between align-items-center p-4">
+        <h3>{title}</h3>
+        <Button
+          type="button"
+          className="btn-transparent fs-1 px-3 py-1"
+          onClick={onClose}
+        >
+          &times;
+        </Button>
       </div>
+      {component}
     </dialog>
   );
 }

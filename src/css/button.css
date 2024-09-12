@@ -24,7 +24,6 @@
 
 .btn:hover:not(:disabled),
 .btn-primary:hover:not(:disabled),
-.btn-sceondary:hover:not(:disabled),
 .btn-gray:hover:not(:disabled),
 .btn-transparent:hover:not(:disabled) {
   background: var(--primary-color);
@@ -33,7 +32,6 @@
 
 .btn:focus:not(:disabled),
 .btn-primary:focus:not(:disabled),
-.btn-sceondary:focus:not(:disabled),
 .btn-gray:focus:not(:disabled),
 .btn-transparent:focus:not(:disabled) {
   outline: none;
@@ -41,7 +39,6 @@
 
 .btn:active:not(:disabled),
 .btn-primary:active:not(:disabled),
-.btn-sceondary:active:not(:disabled),
 .btn-gray:active:not(:disabled),
 .btn-transparent:active:not(:disabled) {
   background: var(--primary-color);

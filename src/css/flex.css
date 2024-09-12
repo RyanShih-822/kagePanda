@@ -45,6 +45,10 @@
 .align-items-start {
   align-items: flex-start;
 }
+
+.align-self-cetner {
+  align-self: center;
+}
 .gap-1 {
   gap: calc(var(--spacer) * 1);
 }

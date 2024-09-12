@@ -41,6 +41,8 @@ export async function updateOrderData({
   drinkId,
   orderConfig,
   numbers,
+  user,
+  comment,
 }) {
   await waitFor();
 
@@ -49,6 +51,8 @@ export async function updateOrderData({
     drinkId,
     orderConfig,
     numbers,
+    user,
+    comment,
   };
 
   const DbOrderData = JSON.parse(localStorage.getItem("orderData")) || [];
@@ -62,6 +66,7 @@ export async function updateOrderData({
     const chooseDrinkData = DbDrinkData?.map((item) => item.productList)
       .flat()
       .find((product) => product.id === drinkId);
+
     const { id, ...otherDrinkData } = chooseDrinkData;
 
     DbOrderData.push({

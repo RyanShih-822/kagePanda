@@ -14,9 +14,13 @@ export default function OrderItem({
   name,
   image,
   orderConfig,
+  user,
+  comment,
 }) {
   const { iceLevels, sugar, toppings } = orderConfig;
 
+  const { deleteOrderDataHandler } = useDeleteOrderData();
+  const { getOrderDataHandler } = useOrderContext();
   const { onOpen, onClose } = useDialogContext();
 
   function clickDialogHandler() {
@@ -34,18 +38,24 @@ export default function OrderItem({
           values={numbers}
           userOrderConfig={orderConfig}
           orderId={orderId}
+          user={user}
+          comment={comment}
         />
       ),
     });
   }
 
   function deleteOrderHandler() {
+    const confirmStatus = window.confirm("確定要刪除訂單嗎？");
+
+    if (confirmStatus === false) {
+      return;
+    }
+
     deleteOrderDataHandler(orderId);
     getOrderDataHandler();
   }
 
-  const { deleteOrderDataHandler } = useDeleteOrderData();
-  const { getOrderDataHandler } = useOrderContext();
   return (
     <>
       <li className="d-flex gap-4 mb-4">
@@ -63,7 +73,12 @@ export default function OrderItem({
             <div>{toppings?.name}</div>
           </div>
         </Button>
-        <Button onClick={deleteOrderHandler}>垃圾桶</Button>
+        <Button
+          className="btn-secondary whitespace-nowrap align-self-cetner"
+          onClick={deleteOrderHandler}
+        >
+          垃圾桶
+        </Button>
       </li>
     </>
   );

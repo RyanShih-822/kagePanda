@@ -22,8 +22,8 @@ export default function Order({ ...props }) {
             <>
               <h3>您的訂單</h3>
               <ul className="py-4">
-                {data?.map(({ drinkId, ...item }) => (
-                  <OrderItem key={drinkId} {...item} />
+                {data?.map(({ orderId, ...item }) => (
+                  <OrderItem key={orderId} orderId={orderId} {...item} />
                 ))}
               </ul>
 

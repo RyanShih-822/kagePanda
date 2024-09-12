@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Button } from "../ui";
+import { Button, Textarea, Input } from "../ui";
 import FormOptions from "./FormOptions";
 import InputNumber from "./InputNumber";
 
@@ -23,6 +23,8 @@ export default function ProductForm({
   values = 1,
   userOrderConfig = defaultConfigOption,
   orderId = crypto.randomUUID(),
+  user = "",
+  comment = "",
 }) {
   const { counter, updateCounterHandler } = useInputNumber(values);
   const incrementHandler = () => {
@@ -37,11 +39,21 @@ export default function ProductForm({
   const { getOrderDataHandler } = useOrderContext();
   const [orderConfig, setOrderConfig] = useState(userOrderConfig);
 
+  const [formData, setFormData] = useState({ user: user, comment: comment });
+
   const updateConfigOptionHandler = (type, value) => {
     setOrderConfig({
       ...orderConfig,
       [type]: value,
     });
+  };
+
+  const changeInputHandler = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const isValidOption = !!(
@@ -51,7 +63,8 @@ export default function ProductForm({
     counter
   );
 
-  const addCartHandler = async () => {
+  const addCartHandler = async (e) => {
+    e.preventDefault();
     if (!isValidOption) {
       return;
     }
@@ -61,7 +74,9 @@ export default function ProductForm({
       drinkId: id,
       orderConfig,
       numbers: counter,
+      ...formData,
     };
+
     await updateOrderDataHandler(orderData);
 
     setOrderConfig(defaultConfigOption);
@@ -70,13 +85,16 @@ export default function ProductForm({
   };
 
   return (
-    <>
-      <div className="overflow-y-auto py-4">
-        <picture className="w-full" style={{ height: "376px" }}>
+    <form
+      className="overflow-hidden  h-full d-flex flex-column"
+      onSubmit={addCartHandler}
+    >
+      <div className="overflow-y-auto py-4 px-4">
+        <picture className="w-full px-" style={{ height: "376px" }}>
           <img src={image} alt="商品預覽照片" />
         </picture>
 
-        <div className="my-4 px-4 d-flex flex-column gap-3">
+        <div className="my-4 d-flex flex-column gap-3">
           {optionConf?.map((item) => (
             <FormOptions
               key={item.configId}
@@ -87,6 +105,31 @@ export default function ProductForm({
               orderConfig={orderConfig}
             />
           ))}
+        </div>
+
+        <div>
+          <label htmlFor="comment">
+            <h3>餐點註解</h3>
+          </label>
+          <Textarea
+            id="comment"
+            name="comment"
+            value={formData.comment}
+            onChange={changeInputHandler}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="user">
+            <h3>訂購人姓名</h3>
+          </label>
+          <Input
+            id="user"
+            name="user"
+            required
+            value={formData.user}
+            onChange={changeInputHandler}
+          />
         </div>
       </div>
 
@@ -102,13 +145,13 @@ export default function ProductForm({
           />
         </div>
         <Button
+          type="submit"
           disabled={!isValidOption}
           className={!isValidOption ? "" : "btn-primary"}
-          onClick={addCartHandler}
         >
           {loading ? "等待中" : "加入購物車"}
         </Button>
       </footer>
-    </>
+    </form>
   );
 }

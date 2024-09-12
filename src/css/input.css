@@ -1,0 +1,13 @@
+.input {
+  height: 35px;
+  padding: calc(var(--spacer) * 4);
+
+  border-radius: calc(var(--spacer) * 4);
+
+  outline: none;
+  border: 1px solid var(--dark-color);
+}
+
+.input:focus-visible {
+  border: 1px solid var(--primary-color);
+}

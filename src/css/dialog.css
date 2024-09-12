@@ -3,6 +3,9 @@
 }
 
 .dialog[open] {
+  display: flex;
+  flex-direction: column;
+
   opacity: 1;
   transform: scaleY(1) translate(-50%, -50%);
   border: none;
