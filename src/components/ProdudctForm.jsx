@@ -1,12 +1,12 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 
 import { Button } from "../ui";
 import FormOptions from "./FormOptions";
 import InputNumber from "./InputNumber";
 
 import useInputNumber from "../hooks/useInputNumber";
-import useCreateOrderData from "../hooks/useCreateOrderData";
-import { OrderContext } from "../context/orderContext";
+import useCreateOrderData from "../hooks/useUpdateOrderData";
+import { useOrderContext } from "../context/orderContext";
 
 const defaultConfigOption = {
   iceLevels: null,
@@ -21,6 +21,8 @@ export default function ProductForm({
   optionConf,
   onClose,
   values = 1,
+  userOrderConfig = defaultConfigOption,
+  orderId = crypto.randomUUID(),
 }) {
   const { counter, updateCounterHandler } = useInputNumber(values);
   const incrementHandler = () => {
@@ -31,9 +33,9 @@ export default function ProductForm({
   };
 
   // cart logic
-  const { loading, createOrderDataHandler } = useCreateOrderData();
-  const { getOrderDataHandler } = useContext(OrderContext);
-  const [orderConfig, setOrderConfig] = useState(defaultConfigOption);
+  const { loading, updateOrderDataHandler } = useCreateOrderData();
+  const { getOrderDataHandler } = useOrderContext();
+  const [orderConfig, setOrderConfig] = useState(userOrderConfig);
 
   const updateConfigOptionHandler = (type, value) => {
     setOrderConfig({
@@ -55,12 +57,12 @@ export default function ProductForm({
     }
 
     const orderData = {
-      orderId: crypto.randomUUID(),
+      orderId,
       drinkId: id,
       orderConfig,
       numbers: counter,
     };
-    await createOrderDataHandler(orderData);
+    await updateOrderDataHandler(orderData);
 
     setOrderConfig(defaultConfigOption);
     onClose();

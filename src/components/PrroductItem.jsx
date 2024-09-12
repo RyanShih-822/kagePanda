@@ -1,7 +1,7 @@
-import { Dialog, Button } from "../ui";
+import { Button } from "../ui";
 import ProductForm from "./ProdudctForm";
 
-import useDialog from "../hooks/useDialog";
+import { useDialogContext } from "../context/dialogContext";
 
 export default function ProductItem({
   className,
@@ -11,13 +11,30 @@ export default function ProductItem({
   image,
   optionConf,
 }) {
-  const { ref, onOpen, onClose } = useDialog();
+  const { onOpen, onClose } = useDialogContext();
+
+  function clickDialogHandler() {
+    onOpen({
+      title: name,
+      component: (
+        <ProductForm
+          key={Math.random()}
+          id={id}
+          name={name}
+          price={price}
+          image={image}
+          optionConf={optionConf}
+          onClose={onClose}
+        />
+      ),
+    });
+  }
 
   return (
     <>
       <li className={className}>
         <Button
-          onClick={onOpen}
+          onClick={clickDialogHandler}
           className="btn-transparent m-3 p-4  w-full d-flex justify-content-between align-items-center"
         >
           <div>
@@ -27,17 +44,6 @@ export default function ProductItem({
           <div className="d-flex">{parseInt(price)}</div>
         </Button>
       </li>
-
-      <Dialog title={name} ref={ref} onClose={onClose}>
-        <ProductForm
-          id={id}
-          name={name}
-          price={price}
-          image={image}
-          optionConf={optionConf}
-          onClose={onClose}
-        />
-      </Dialog>
     </>
   );
 }

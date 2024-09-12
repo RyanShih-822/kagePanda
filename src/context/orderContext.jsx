@@ -1,4 +1,4 @@
-import { createContext, useMemo } from "react";
+import { createContext, useMemo, useContext } from "react";
 
 import useGetOrderData from "../hooks/useGetOrderData";
 
@@ -29,4 +29,14 @@ export function OrderContextProvider({ children }) {
       {children}
     </OrderContext.Provider>
   );
+}
+
+export function useOrderContext() {
+  const context = useContext(OrderContext);
+
+  if (!context) {
+    throw Error("OrderContext should be used in OrderProvider");
+  }
+
+  return context;
 }

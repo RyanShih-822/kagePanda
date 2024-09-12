@@ -1,9 +1,11 @@
-import { createPortal } from "react-dom";
-import { forwardRef } from "react";
-
 import { Button } from "../ui";
 
-export default forwardRef(function Dialog({ title, onClose, children }, ref) {
+import { useDialogContext } from "../context/dialogContext";
+
+export default function Dialog() {
+  const { ref, onClose, dialogData } = useDialogContext();
+  const { title, component } = dialogData;
+
   return (
     <dialog ref={ref} className="dialog">
       <div className="h-full  d-flex flex-column">
@@ -17,8 +19,8 @@ export default forwardRef(function Dialog({ title, onClose, children }, ref) {
             &times;
           </Button>
         </div>
-        {children}
+        {component}
       </div>
     </dialog>
   );
-});
+}

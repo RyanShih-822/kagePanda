@@ -1,22 +1,24 @@
 import { useState, useCallback } from "react";
-import { createOrderData } from "../models/products";
+import { updateOrderData } from "../models/products";
 
-export default function useCreateOrderData() {
+export default function useUpdateOrderData() {
   const [status, setStatus] = useState(null);
   const [loading, setIsLoading] = useState(false);
 
-  const createOrderDataHandler = useCallback(
+  const updateOrderDataHandler = useCallback(
     async ({ orderId, drinkId, orderConfig, numbers }) => {
       setIsLoading(true);
 
-      const res = await createOrderData({
+      const res = await updateOrderData({
         orderId,
         drinkId,
         orderConfig,
         numbers,
       });
 
-      if (res.status !== "success") return;
+      if (res.status !== "success") {
+        return;
+      }
 
       setIsLoading(false);
       setStatus(res.status);
@@ -24,5 +26,5 @@ export default function useCreateOrderData() {
     []
   );
 
-  return { status, loading, createOrderDataHandler };
+  return { status, loading, updateOrderDataHandler };
 }

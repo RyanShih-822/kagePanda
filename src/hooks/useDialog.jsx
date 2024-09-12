@@ -1,12 +1,16 @@
-import { useRef, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
+
+const defaultDialogData = { title: "", component: null };
 
 export default function useDialog() {
   const ref = useRef(null);
+  const [dialogData, setDialgData] = useState(defaultDialogData);
 
-  function onOpen() {
+  function onOpen(data) {
     if (!ref?.current) {
       return;
     }
+    setDialgData(data);
     ref?.current?.showModal();
   }
 
@@ -14,7 +18,7 @@ export default function useDialog() {
     if (!ref?.current) {
       return;
     }
-
+    setDialgData(defaultDialogData);
     ref?.current?.close();
   }
 
@@ -22,6 +26,7 @@ export default function useDialog() {
   useEffect(() => {
     const dialogRef = ref?.current;
     function closeOutSideHandler(e) {
+      console.log("testse");
       if (e.target === dialogRef) {
         dialogRef.close();
       }
@@ -33,5 +38,5 @@ export default function useDialog() {
       dialogRef?.removeEventListener("click", closeOutSideHandler);
     };
   }, []);
-  return { ref, onOpen, onClose };
+  return { ref, onOpen, onClose, dialogData };
 }

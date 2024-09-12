@@ -1,8 +1,9 @@
+import { Spinner, Dialog } from "../ui";
 import ProductList from "./ProudctList";
-import { Spinner } from "../ui";
 import Order from "./Order";
 
 import { OrderContextProvider } from "../context/orderContext.jsx";
+import { DialogContextProvider } from "../context/dialogContext.jsx";
 
 import useGetDrinkData from "../hooks/useGetDrinkData.jsx";
 
@@ -15,17 +16,20 @@ export default function Service() {
 
   return (
     <section className="w-full d-flex flex-wrap justify-content-between align-items-start gap-4">
-      <OrderContextProvider>
-        {data?.map(({ title, productList }) => (
-          <ProductList
-            key={title}
-            className="flex-fill"
-            title={title}
-            productList={productList}
-          />
-        ))}
-        <Order className="flex-fill" />
-      </OrderContextProvider>
+      <DialogContextProvider>
+        <OrderContextProvider>
+          {data?.map(({ title, productList }) => (
+            <ProductList
+              key={title}
+              className="flex-fill"
+              title={title}
+              productList={productList}
+            />
+          ))}
+          <Order className="flex-fill" />
+          <Dialog />
+        </OrderContextProvider>
+      </DialogContextProvider>
     </section>
   );
 }
