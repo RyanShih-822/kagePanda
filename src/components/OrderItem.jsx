@@ -21,7 +21,7 @@ export default function OrderItem({
 
   const { deleteOrderDataHandler } = useDeleteOrderData();
   const { getOrderDataHandler } = useOrderContext();
-  const { onOpen, onClose } = useDialogContext();
+  const { onOpen } = useDialogContext();
 
   function clickDialogHandler() {
     onOpen({
@@ -34,9 +34,8 @@ export default function OrderItem({
           price={price}
           image={image}
           optionConf={optionConf}
-          onClose={onClose}
           values={numbers}
-          userOrderConfig={orderConfig}
+          orderConfig={orderConfig}
           orderId={orderId}
           user={user}
           comment={comment}
@@ -68,9 +67,9 @@ export default function OrderItem({
           </div>
           <div className="text-end">
             <div>{name}</div>
-            <div>{iceLevels?.name}</div>
-            <div>{sugar.name}</div>
-            <div>{toppings?.name}</div>
+            <div>{iceLevels}</div>
+            <div>{sugar}</div>
+            <div>{toppings}</div>
           </div>
         </Button>
         <Button

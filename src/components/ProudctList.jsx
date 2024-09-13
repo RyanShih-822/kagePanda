@@ -1,9 +1,9 @@
 import { Card } from "../ui";
 import ProductItem from "./PrroductItem";
 
-export default function ProductList({ title, productList, ...props }) {
+export default function ProductList({ title, productList, className }) {
   return (
-    <Card {...props}>
+    <Card className={className}>
       <h2 className="text-primary">{title}</h2>
       <ul className="py-4">
         {productList?.map(({ id, ...item }, index) => (

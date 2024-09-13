@@ -1,4 +1,4 @@
-import { Button } from "../ui";
+import { Button, Input } from "../ui";
 
 export default function InputNumber({
   value,
@@ -8,7 +8,7 @@ export default function InputNumber({
   max = Infinity,
 }) {
   return (
-    <div className="d-flex">
+    <div className="position-relative d-flex align-items-center gap-4">
       <Button
         className="p-4"
         onClick={decrementHandler}
@@ -16,7 +16,17 @@ export default function InputNumber({
       >
         -
       </Button>
-      <div className="p-4 min-w-10 ">{value}</div>
+      <label htmlFor="inputNumber" className="min-w-10 d-block text-center">
+        {value}
+      </label>
+      <Input
+        className="opacity-0 position-absolute top-0"
+        id="inputNumber"
+        type="hidden"
+        readOnly
+        value={value}
+      />
+
       <Button
         className="p-4"
         onClick={incrementHandler}

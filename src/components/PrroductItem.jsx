@@ -11,7 +11,7 @@ export default function ProductItem({
   image,
   optionConf,
 }) {
-  const { onOpen, onClose } = useDialogContext();
+  const { onOpen } = useDialogContext();
 
   function clickDialogHandler() {
     onOpen({
@@ -24,7 +24,6 @@ export default function ProductItem({
           price={price}
           image={image}
           optionConf={optionConf}
-          onClose={onClose}
         />
       ),
     });
@@ -41,7 +40,7 @@ export default function ProductItem({
             <img className="bg-gray" src={image} alt="商品圖片" />
           </div>
           <h3 className="my-3 ">{name}</h3>
-          <div className="d-flex">{parseInt(price)}</div>
+          <div className="d-flex">${parseInt(price)}</div>
         </Button>
       </li>
     </>
