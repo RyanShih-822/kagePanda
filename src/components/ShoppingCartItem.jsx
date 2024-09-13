@@ -6,7 +6,7 @@ import { useDialogContext } from "../context/dialogContext";
 
 import useDeleteOrderData from "../hooks/useDeleteOrder";
 
-export default function OrderItem({
+export default function ShoppingCart({
   orderId,
   price,
   optionConf,

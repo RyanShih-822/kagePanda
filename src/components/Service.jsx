@@ -1,6 +1,6 @@
 import { Spinner, Dialog } from "../ui";
 import ProductList from "./ProudctList";
-import Order from "./Order";
+import ShoppingCart from "./ShoppingCart.jsx";
 
 import { OrderContextProvider } from "../context/orderContext.jsx";
 import { DialogContextProvider } from "../context/dialogContext.jsx";
@@ -26,7 +26,8 @@ export default function Service() {
               productList={productList}
             />
           ))}
-          <Order className="flex-fill" />
+          <ShoppingCart className="flex-fill" />
+
           <Dialog />
         </OrderContextProvider>
       </DialogContextProvider>

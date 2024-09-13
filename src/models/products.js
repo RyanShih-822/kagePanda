@@ -64,8 +64,8 @@ export async function updateOrderData({
   if (orderIndex === -1) {
     const DbDrinkData = JSON.parse(localStorage.getItem("drinkData")) || [];
     const chooseDrinkData = DbDrinkData?.map((item) => item.productList)
-      .flat()
-      .find((product) => product.id === drinkId);
+      ?.flat()
+      ?.find((product) => product.id === drinkId);
 
     const { id, ...otherDrinkData } = chooseDrinkData;
 

@@ -20,29 +20,14 @@
   overflow: hidden;
 }
 
-/* .dialog {
-    opacity: 0;
-    transform: scaleY(0);
-    transition: all 0.5s allow-discrete;
+@media screen and (max-width: 768px) {
+  .dialog[open] {
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    height: 100dvh;
   }
-  
-  .dialog::backdrop {
-    background-color: transparent;
-    transition: all 0.5s allow-discrete;
-  }
-  
-  @starting-style {
-    .dialog[open] {
-      opacity: 0;
-      transform: scaleY(0);
-    }
-  }
-  
-  @starting-style {
-    .dialog[open]::backdrop {
-      background-color: transparent;
-    }
-  } */
+}
 
 html:has(.dialog[open]) {
   overflow: hidden;

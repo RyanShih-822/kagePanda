@@ -26,6 +26,7 @@ export default function useDialog() {
   useEffect(() => {
     const dialogRef = ref?.current;
     function closeOutSideHandler(e) {
+      console.log(e.target);
       if (e.target === dialogRef) {
         dialogRef.close();
       }

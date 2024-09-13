@@ -19,11 +19,29 @@
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1024px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 480px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    max-width: 360px;
+  }
 }
 
 .card {
@@ -33,4 +51,15 @@
   background: var(--light-color);
   border-radius: calc(var(--spacer) * 4);
   padding: calc(var(--spacer) * 4) calc(var(--spacer) * 8);
+}
+
+.aside {
+  height: 100%;
+  width: 352px;
+}
+
+@media screen and (max-width: 768px) {
+  .aside {
+    display: none;
+  }
 }
