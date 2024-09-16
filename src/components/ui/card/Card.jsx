@@ -1,6 +1,7 @@
 const cardStyle = "card";
 
-export default function Card({ className, ...props }) {
+export default function Card({ className = "", htmlTag = "div", ...props }) {
   const css = `${cardStyle} ${className}`;
-  return <div className={css} {...props} />;
+  const Tag = htmlTag;
+  return <Tag className={css} {...props} />;
 }

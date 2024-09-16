@@ -1,6 +1,6 @@
 import { ENUM_DRINKDATA, ENUM_OrderDATA } from "../assets/drinkData.js";
 
-const delayTime = 0;
+const delayTime = 500;
 
 function waitFor() {
   return new Promise((resolve) => setTimeout(resolve, delayTime));

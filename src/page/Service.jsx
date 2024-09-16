@@ -25,7 +25,7 @@ export default function Service() {
               productList={productList}
             />
           ))}
-          <Order className="flex-fill" />
+          <Order />
 
           <Dialog />
         </OrderContextProvider>
