@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from "react";
-import { deleteOrderData } from "../models/products";
+import { useState, useCallback } from "react";
+import { deleteOrderData } from "@/models/products";
 
 export default function useDeleteOrderData() {
   const [isLoading, setIsLoading] = useState(false);

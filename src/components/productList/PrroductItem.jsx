@@ -1,7 +1,7 @@
-import { Button } from "../ui";
-import ProductForm from "./ProdudctForm";
+import { Button } from "@/components/ui";
+import { ProductForm } from "@/components/productForm";
 
-import { useDialogContext } from "../context/dialogContext";
+import { useDialogContext } from "@/components/ui";
 
 export default function ProductItem({
   className,

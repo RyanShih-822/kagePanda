@@ -1,8 +1,8 @@
-import { Button, Textarea, Input } from "../ui";
+import { Button, Textarea, Input } from "@/components/ui";
+import { InputNumber } from "@/components/inutNumber";
 import ProdouctRadios from "./ProdouctRadios";
-import InputNumber from "./InputNumber";
 
-import userProductForm from "../hooks/useProductForm";
+import userProductForm from "./useProductForm";
 
 const defaultConfigOption = {
   iceLevels: "",

@@ -1,4 +1,4 @@
-import { Card, Button } from "../ui";
+import { Card, Button } from "@/components/ui";
 
 export default function DiscountInfo() {
   return (

@@ -1,4 +1,4 @@
-import { Card } from "../ui";
+import { Card } from "@/components/ui";
 import ProductItem from "./PrroductItem";
 
 export default function ProductList({ title, productList, className }) {

@@ -1,12 +1,10 @@
-import { Button } from "../ui";
-import ProductForm from "./ProdudctForm";
+import { Button, useDialogContext } from "@/components/ui";
+import { ProductForm } from "@/components/productForm";
 
-import { useOrderContext } from "../context/orderContext";
-import { useDialogContext } from "../context/dialogContext";
+import { useOrderContext } from "@/components/order";
+import { useDeleteOrderData } from "@/hooks";
 
-import useDeleteOrderData from "../hooks/useDeleteOrder";
-
-export default function ShoppingCart({
+export default function OrderItem({
   orderId,
   price,
   optionConf,

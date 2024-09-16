@@ -1,12 +1,15 @@
-import { Button } from "../ui";
+import { createPortal } from "react-dom";
 
-import { useDialogContext } from "../context/dialogContext";
+import { Button } from "@/components/ui";
+
+import { useDialogContext } from "./dialogContext";
 
 export default function Dialog() {
   const { ref, onClose, dialogData } = useDialogContext();
   const { title, component } = dialogData;
+  const dialogRef = document.getElementById("dialog");
 
-  return (
+  return createPortal(
     <dialog ref={ref} className="dialog">
       <div className="d-flex justify-content-between align-items-center p-4">
         <h3>{title}</h3>
@@ -19,6 +22,7 @@ export default function Dialog() {
         </Button>
       </div>
       {component}
-    </dialog>
+    </dialog>,
+    dialogRef
   );
 }

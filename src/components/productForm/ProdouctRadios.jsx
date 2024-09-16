@@ -1,4 +1,4 @@
-import { Radio } from "../ui";
+import { Radio } from "@/components/ui";
 
 export default function ProdouctRadios({
   optionTitle,

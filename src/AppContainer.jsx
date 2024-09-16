@@ -1,8 +1,4 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Banner from "./components/Banner";
-import DiscountInfo from "./components/DiscountInfo";
-import Service from "./components/Service";
+import { Header, Footer, Banner, DiscountInfo, Service } from "@/page";
 
 export default function AppContainer() {
   return (

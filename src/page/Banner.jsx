@@ -1,4 +1,4 @@
-import { Card, Carousel } from "../ui";
+import { Card, Carousel } from "@/components/ui";
 
 export default function Banner() {
   return (

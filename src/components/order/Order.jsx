@@ -1,10 +1,9 @@
-import { Card, Button, Spinner } from "../ui";
+import { Card, Button } from "@/components/ui";
+import OrderItem from "./OrderItem";
 
-import ShoppingCartItem from "./ShoppingCartItem";
+import { useOrderContext } from "./orderContext";
 
-import { useOrderContext } from "../context/orderContext";
-
-export default function ShoppingCart({ ...props }) {
+export default function Order({ ...props }) {
   const { data } = useOrderContext();
 
   const totalPrice = data?.reduce((acc, curr) => {
@@ -22,7 +21,7 @@ export default function ShoppingCart({ ...props }) {
             <h3>您的訂單</h3>
             <ul className="py-4">
               {data?.map(({ orderId, ...item }) => (
-                <ShoppingCartItem key={orderId} orderId={orderId} {...item} />
+                <OrderItem key={orderId} orderId={orderId} {...item} />
               ))}
             </ul>
 

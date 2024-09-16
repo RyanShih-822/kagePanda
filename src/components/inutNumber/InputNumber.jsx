@@ -1,4 +1,4 @@
-import { Button, Input } from "../ui";
+import { Button, Input } from "@/components/ui";
 
 export default function InputNumber({
   value,

@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import useCreateOrderData from "../hooks/useUpdateOrderData";
+import { useUpdateOrderData } from "@/hooks";
 
-import { useDialogContext } from "../context/dialogContext";
-import { useOrderContext } from "../context/orderContext";
+import { useDialogContext } from "@/components/ui";
+import { useOrderContext } from "@/components/order";
 
 const defaultConfigOption = {
   iceLevels: "",
@@ -19,7 +19,7 @@ export default function userProductForm({
   numbers,
   orderConfig,
 }) {
-  const { updateOrderDataHandler } = useCreateOrderData();
+  const { updateOrderDataHandler } = useUpdateOrderData();
   const { getOrderDataHandler } = useOrderContext();
   const { onClose } = useDialogContext();
 

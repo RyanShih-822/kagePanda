@@ -1,11 +1,10 @@
-import { Spinner, Dialog } from "../ui";
-import ProductList from "./ProudctList";
-import ShoppingCart from "./ShoppingCart.jsx";
+import { Spinner, Dialog } from "@/components/ui";
+import { ProductList } from "@/components/productList";
+import { Order, OrderContextProvider } from "@/components/order";
 
-import { OrderContextProvider } from "../context/orderContext.jsx";
-import { DialogContextProvider } from "../context/dialogContext.jsx";
+import { DialogContextProvider } from "@/components/ui";
 
-import useGetDrinkData from "../hooks/useGetDrinkData.jsx";
+import { useGetDrinkData } from "@/hooks";
 
 export default function Service() {
   const { data } = useGetDrinkData();
@@ -26,7 +25,7 @@ export default function Service() {
               productList={productList}
             />
           ))}
-          <ShoppingCart className="flex-fill" />
+          <Order className="flex-fill" />
 
           <Dialog />
         </OrderContextProvider>

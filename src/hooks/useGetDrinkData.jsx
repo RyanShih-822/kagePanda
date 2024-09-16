@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { getProductData } from "../models/products";
+import { getProductData } from "@/models/products";
 
 export default function useGetDrinkData() {
   const [drinkData, setDrinkData] = useState([]);

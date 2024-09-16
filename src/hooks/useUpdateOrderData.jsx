@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { updateOrderData } from "../models/products";
+import { updateOrderData } from "@/models/products";
 
 export default function useUpdateOrderData() {
   const [status, setStatus] = useState(null);

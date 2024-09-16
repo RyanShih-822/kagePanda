@@ -1,6 +1,6 @@
 import { createContext, useMemo, useContext } from "react";
 
-import useGetOrderData from "../hooks/useGetOrderData";
+import { useGetOrderData } from "@/hooks";
 
 const defaultOrder = {
   orderId: "1",
