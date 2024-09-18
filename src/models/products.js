@@ -6,6 +6,16 @@ function waitFor() {
   return new Promise((resolve) => setTimeout(resolve, delayTime));
 }
 
+function findOrderData(orderId) {
+  const DbOrderData = JSON.parse(localStorage.getItem("orderData")) || [];
+
+  const orderIndex = DbOrderData?.findIndex(
+    (item) => item?.orderId === orderId
+  );
+
+  return orderIndex;
+}
+
 export async function getProductData() {
   await waitFor();
 
@@ -36,6 +46,56 @@ export async function getOrderData() {
   };
 }
 
+export async function createOrderData({
+  orderId,
+  drinkId,
+  orderConfig,
+  numbers,
+  user,
+  comment,
+}) {
+  await waitFor();
+
+  const orderData = {
+    orderId,
+    drinkId,
+    orderConfig,
+    numbers,
+    user,
+    comment,
+  };
+
+  const orderIndex = findOrderData(orderId);
+
+  if (orderIndex !== -1) {
+    return {
+      status: "failed",
+      message: "The data is already in the DB",
+    };
+  }
+
+  const DbOrderData = JSON.parse(localStorage.getItem("orderData")) || [];
+  const DbDrinkData = JSON.parse(localStorage.getItem("drinkData")) || [];
+  const chooseDrinkData = DbDrinkData?.map((item) => item.productList)
+    ?.flat()
+    ?.find((product) => product.id === drinkId);
+
+  const { id, ...otherDrinkData } = chooseDrinkData;
+
+  const updateData = {
+    ...otherDrinkData,
+    ...orderData,
+  };
+  DbOrderData.push(updateData);
+  localStorage.setItem("orderData", JSON.stringify(DbOrderData));
+
+  return {
+    status: "success",
+    message: "successfully create order data",
+    data: updateData,
+  };
+}
+
 export async function updateOrderData({
   orderId,
   drinkId,
@@ -56,32 +116,24 @@ export async function updateOrderData({
   };
 
   const DbOrderData = JSON.parse(localStorage.getItem("orderData")) || [];
-
-  const orderIndex = DbOrderData?.findIndex(
-    (item) => item?.orderId === orderId
-  );
+  const orderIndex = findOrderData(orderId);
 
   if (orderIndex === -1) {
-    const DbDrinkData = JSON.parse(localStorage.getItem("drinkData")) || [];
-    const chooseDrinkData = DbDrinkData?.map((item) => item.productList)
-      ?.flat()
-      ?.find((product) => product.id === drinkId);
-
-    const { id, ...otherDrinkData } = chooseDrinkData;
-
-    DbOrderData.push({
-      ...otherDrinkData,
-      ...orderData,
-    });
-  } else {
-    DbOrderData[orderIndex] = { ...DbOrderData[orderIndex], ...orderData };
+    return {
+      status: "failed",
+      message: "The data is not in the DB yet",
+    };
   }
+
+  DbOrderData[orderIndex] = { ...DbOrderData[orderIndex], ...orderData };
+  const updateData = DbOrderData[orderIndex];
 
   localStorage.setItem("orderData", JSON.stringify(DbOrderData));
 
   return {
     status: "success",
-    data: "successfully update order data",
+    message: "successfully update order data",
+    data: updateData,
   };
 }
 
@@ -96,6 +148,6 @@ export async function deleteOrderData(orderId) {
 
   return {
     status: "success",
-    data: "successfully delete order data",
+    message: "successfully delete order data",
   };
 }

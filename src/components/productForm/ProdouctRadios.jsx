@@ -19,7 +19,7 @@ export default function ProdouctRadios({
           <li key={title} className="position-relative flex-basis-1/3">
             <label
               className={`w-full text-center ${
-                chooseOption === title ? "btn-primary" : "btn-gray "
+                chooseOption === title ? "btn-primary" : "btn-gray"
               }`}
               htmlFor={title}
             >

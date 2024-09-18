@@ -1,8 +1,12 @@
+import { useState } from "react";
+
 import { Button, Textarea, Input } from "@/components/ui";
 import { InputNumber } from "@/components/inutNumber";
 import ProdouctRadios from "./ProdouctRadios";
 
-import userProductForm from "./useProductForm";
+import { useUpdateOrderData, useCreateOrderData } from "@/hooks";
+import { useOrderContext } from "@/components/order";
+import { useDialogContext } from "@/components/ui";
 
 const defaultConfigOption = {
   iceLevels: "",
@@ -20,22 +24,102 @@ export default function ProductForm({
   orderId = crypto.randomUUID(),
   user = "",
   comment = "",
+  buttonText = "",
+  type = "create",
 }) {
-  const {
-    formData,
-    isValidOption,
-    incrementHandler,
-    decrementHandler,
-    changeFormDataHandler,
-    addCartHandler,
-  } = userProductForm({
-    orderId,
-    drinkId: id,
-    user: user,
-    comment: comment,
+  const { dispatch } = useOrderContext();
+
+  const { onClose } = useDialogContext();
+
+  const [formData, setFormData] = useState({
+    user,
+    comment,
     numbers: values,
     orderConfig,
   });
+
+  const incrementHandler = () => {
+    setFormData((prev) => ({
+      ...prev,
+      numbers: prev.numbers + 1,
+    }));
+  };
+
+  const decrementHandler = () => {
+    setFormData((prev) => ({
+      ...prev,
+      numbers: prev.numbers - 1,
+    }));
+  };
+
+  const changeFormDataHandler = (e) => {
+    const { name, value } = e.target;
+
+    const isOrderConfig = !formData.hasOwnProperty(name);
+
+    if (isOrderConfig) {
+      setFormData((prev) => ({
+        ...prev,
+        orderConfig: { ...prev.orderConfig, [name]: value },
+      }));
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
+  };
+
+  const isValidOption = !!(
+    formData?.orderConfig?.iceLevels &&
+    formData?.orderConfig?.sugar &&
+    formData?.orderConfig?.toppings &&
+    formData?.user &&
+    formData?.numbers
+  );
+
+  const orderItem = {
+    orderId,
+    drinkId: id,
+    ...formData,
+  };
+  const { fetchHandler: createOrderDataHandler } =
+    useCreateOrderData(orderItem);
+
+  const { fetchHandler: updateOrderDataHandler } =
+    useUpdateOrderData(orderItem);
+
+  const createHandler = async () => {
+    const data = await createOrderDataHandler();
+    dispatch({ type: "add", orderItem: data });
+  };
+
+  const updateHandler = async () => {
+    const data = await updateOrderDataHandler();
+    dispatch({ type: "update", orderItem: data });
+  };
+
+  const addCartHandler = async (e) => {
+    e.preventDefault();
+    if (!isValidOption) {
+      return;
+    }
+
+    if (type === "create") {
+      await createHandler();
+    } else {
+      await updateHandler();
+    }
+
+    setFormData({
+      user: "",
+      comment: "",
+      numbers: 1,
+      orderConfig: { ...defaultConfigOption },
+    });
+
+    onClose();
+  };
 
   return (
     <form
@@ -102,7 +186,7 @@ export default function ProductForm({
           disabled={!isValidOption}
           className={!isValidOption ? "" : "btn-primary"}
         >
-          {"加入購物車"}
+          {buttonText}
         </Button>
       </footer>
     </form>

@@ -1,32 +1,14 @@
-import { useState, useCallback } from "react";
+import useQuery from "./useQuery";
 import { updateOrderData } from "@/models/products";
 
-export default function useUpdateOrderData() {
-  const [status, setStatus] = useState(null);
-  const [loading, setIsLoading] = useState(false);
+async function updateOrderDataHandler(orderData) {
+  const { data } = await updateOrderData(orderData);
+  return data;
+}
 
-  const updateOrderDataHandler = useCallback(
-    async ({ orderId, drinkId, orderConfig, numbers, user, comment }) => {
-      setIsLoading(true);
-
-      const res = await updateOrderData({
-        orderId,
-        drinkId,
-        orderConfig,
-        numbers,
-        user,
-        comment,
-      });
-
-      if (res.status !== "success") {
-        return;
-      }
-
-      setIsLoading(false);
-      setStatus(res.status);
-    },
-    []
-  );
-
-  return { status, loading, updateOrderDataHandler };
+export default function useUpdateOrderData(orderData) {
+  return useQuery({
+    queryFn: () => updateOrderDataHandler(orderData),
+    enabled: false,
+  });
 }

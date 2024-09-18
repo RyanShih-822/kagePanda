@@ -15,10 +15,10 @@ export default function OrderItem({
   user,
   comment,
 }) {
-  const { iceLevels, sugar, toppings } = orderConfig;
+  const { iceLevels, sugar, toppings } = orderConfig || {};
 
-  const { deleteOrderDataHandler } = useDeleteOrderData();
-  const { getOrderDataHandler } = useOrderContext();
+  const { fetchHandler: deleteOrderDataHandler } = useDeleteOrderData(orderId);
+  const { dispatch } = useOrderContext();
   const { onOpen } = useDialogContext();
 
   function clickDialogHandler() {
@@ -28,7 +28,6 @@ export default function OrderItem({
         <ProductForm
           key={Math.random()}
           id={orderId}
-          name={name}
           price={price}
           image={image}
           optionConf={optionConf}
@@ -37,21 +36,23 @@ export default function OrderItem({
           orderId={orderId}
           user={user}
           comment={comment}
+          type="update"
+          buttonText="更新購物車"
         />
       ),
     });
   }
 
-  function deleteOrderHandler() {
+  const deleteOrderHandler = async () => {
     const confirmStatus = window.confirm("確定要刪除訂單嗎？");
 
     if (confirmStatus === false) {
       return;
     }
 
-    deleteOrderDataHandler(orderId);
-    getOrderDataHandler();
-  }
+    await deleteOrderDataHandler();
+    dispatch({ type: "delete", orderId });
+  };
 
   return (
     <>

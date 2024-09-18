@@ -1,6 +1,4 @@
-import { createContext, useMemo, useContext } from "react";
-
-import { useGetOrderData } from "@/hooks";
+import { useReducer, createContext, useMemo, useContext } from "react";
 
 const defaultOrder = {
   orderId: "1",
@@ -13,15 +11,38 @@ const defaultOrder = {
 
 export const OrderContext = createContext([defaultOrder]);
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "get":
+      return [...action?.orderData];
+
+    case "add":
+      return [...state, { ...action?.orderItem }];
+
+    case "update":
+      return state.map((item) =>
+        item?.orderId === action?.orderItem?.orderId ? action?.orderItem : item
+      );
+
+    case "delete":
+      return state?.filter((item) => item?.orderId !== action?.orderId);
+
+    default:
+      return state;
+  }
+};
+
+const initialOrder = [];
+
 export function OrderContextProvider({ children }) {
-  const { data, getOrderDataHandler } = useGetOrderData();
+  const [orderData, dispatch] = useReducer(reducer, initialOrder);
 
   const contextValue = useMemo(
     () => ({
-      data,
-      getOrderDataHandler,
+      orderData,
+      dispatch,
     }),
-    [data, getOrderDataHandler]
+    [orderData, dispatch]
   );
 
   return (

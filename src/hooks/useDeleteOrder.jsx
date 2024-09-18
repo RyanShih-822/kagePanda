@@ -1,16 +1,16 @@
-import { useState, useCallback } from "react";
+import useQuery from "./useQuery";
+
 import { deleteOrderData } from "@/models/products";
 
-export default function useDeleteOrderData() {
-  const [isLoading, setIsLoading] = useState(false);
+async function deleteOrderDataHanlder(orderId) {
+  const data = await deleteOrderData(orderId);
 
-  const deleteOrderDataHandler = useCallback(async (orderId) => {
-    setIsLoading(true);
+  return data;
+}
 
-    await deleteOrderData(orderId);
-
-    setIsLoading(false);
-  }, []);
-
-  return { isLoading, deleteOrderDataHandler };
+export default function useDeleteOrderData(orderId) {
+  return useQuery({
+    queryFn: () => deleteOrderDataHanlder(orderId),
+    enabled: false,
+  });
 }

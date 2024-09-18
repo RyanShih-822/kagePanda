@@ -1,18 +1,12 @@
-import { useState, useEffect, useCallback } from "react";
+import useQuery from "./useQuery";
+
 import { getOrderData } from "@/models/products";
 
+async function getOrderDataHanlder() {
+  const { data } = await getOrderData();
+  return data;
+}
+
 export default function useGetOrderData() {
-  const [orderData, setOrderData] = useState([]);
-
-  const getOrderDataHandler = useCallback(async () => {
-    const { data } = await getOrderData();
-
-    setOrderData(data);
-  }, []);
-
-  useEffect(() => {
-    getOrderDataHandler();
-  }, [getOrderDataHandler]);
-
-  return { data: orderData, getOrderDataHandler };
+  return useQuery({ queryFn: getOrderDataHanlder });
 }

@@ -20,29 +20,27 @@ export default function ProductItem({
         <ProductForm
           key={Math.random()}
           id={id}
-          name={name}
           price={price}
           image={image}
           optionConf={optionConf}
+          buttonText="加入購物車"
         />
       ),
     });
   }
 
   return (
-    <>
-      <li className={className}>
-        <Button
-          onClick={clickDialogHandler}
-          className="btn-transparent m-3 p-4  w-full d-flex justify-content-between align-items-center"
-        >
-          <div>
-            <img className="bg-gray" src={image} alt="商品圖片" />
-          </div>
-          <h3 className="my-3 ">{name}</h3>
-          <div className="d-flex">${parseInt(price)}</div>
-        </Button>
-      </li>
-    </>
+    <li className={className}>
+      <Button
+        onClick={clickDialogHandler}
+        className="btn-transparent m-3 p-4  w-full d-flex justify-content-between align-items-center"
+      >
+        <div>
+          <img className="bg-gray" src={image} alt="商品圖片" />
+        </div>
+        <h3 className="my-3 ">{name}</h3>
+        <div className="d-flex">${parseInt(price)}</div>
+      </Button>
+    </li>
   );
 }
