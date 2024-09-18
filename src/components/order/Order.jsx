@@ -24,11 +24,19 @@ export default function Order() {
   }, 0);
 
   if (isLoading) {
-    return <Spinner />;
+    return (
+      <Card htmlTag="aside" className="aside">
+        <Spinner />
+      </Card>
+    );
   }
 
   if (orderData?.length === 0) {
-    <div>尚無訂單</div>;
+    return (
+      <Card htmlTag="aside" className="aside">
+        <div>尚無訂單</div>
+      </Card>
+    );
   }
 
   return (

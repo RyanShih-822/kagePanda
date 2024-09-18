@@ -4,7 +4,7 @@ export default function useQuery({ queryFn, enabled = true }) {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchHandler = async () => {
+  const fetchHandler = useCallback(async () => {
     setIsLoading(true);
 
     const fetchData = await queryFn();
@@ -14,7 +14,7 @@ export default function useQuery({ queryFn, enabled = true }) {
     setIsLoading(false);
 
     return fetchData;
-  };
+  }, [queryFn]);
 
   useEffect(() => {
     if (!enabled) {
@@ -22,7 +22,7 @@ export default function useQuery({ queryFn, enabled = true }) {
     }
 
     fetchHandler();
-  }, [enabled]);
+  }, [fetchHandler, enabled]);
 
   return { isLoading, data, fetchHandler };
 }

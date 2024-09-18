@@ -10,7 +10,7 @@ export default function Service() {
   const { isLoading, data: drinkData } = useGetDrinkData();
 
   if (isLoading) {
-    <Spinner />;
+    return <Spinner />;
   }
 
   if (drinkData?.length === 0) {
