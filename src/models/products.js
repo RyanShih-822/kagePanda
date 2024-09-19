@@ -1,9 +1,54 @@
-import { ENUM_DRINKDATA, ENUM_OrderDATA } from "../assets/drinkData.js";
+import { ENUM_DRINK_DATA, ENUM_ORDER_DATA } from "../assets/drinkData.js";
 
 const delayTime = 500;
 
 function waitFor() {
   return new Promise((resolve) => setTimeout(resolve, delayTime));
+}
+
+function getChooseDrinkData(drinkId) {
+  const DbDrinkData = JSON.parse(localStorage.getItem("drinkData")) || [];
+  return DbDrinkData?.map((item) => item.productList)
+    ?.flat()
+    ?.find((product) => product.id === drinkId);
+}
+
+function editOrderDataHandler(drinkId, orderConfig) {
+  const chooseDrinkData = getChooseDrinkData(drinkId);
+
+  console.log("chooseDrinkData", chooseDrinkData);
+  const { id, optionConf, ...otherDrinkData } = chooseDrinkData;
+  const defaultEditOrderConf = {
+    iceLevels: {
+      title: "",
+      name: "",
+    },
+    sugar: {
+      title: "",
+      name: "",
+    },
+    toppings: {
+      title: "",
+      name: "",
+    },
+  };
+
+  const editOrderConf = optionConf?.reduce((acc, curr) => {
+    const { title, name } = curr.dataArr.find(
+      (item) => item.title === orderConfig[curr?.configId]
+    );
+
+    acc[curr?.configId].title = title;
+    acc[curr?.configId].name = name;
+
+    return acc;
+  }, defaultEditOrderConf);
+
+  return {
+    optionConf,
+    ...otherDrinkData,
+    orderConfig: editOrderConf,
+  };
 }
 
 function findOrderData(orderId) {
@@ -20,7 +65,7 @@ export async function getProductData() {
   await waitFor();
 
   if (!localStorage.getItem("drinkData")) {
-    const [drinkArrData] = Object.values(ENUM_DRINKDATA);
+    const [drinkArrData] = Object.values(ENUM_DRINK_DATA);
 
     localStorage.setItem("drinkData", JSON.stringify(drinkArrData));
   }
@@ -35,7 +80,7 @@ export async function getOrderData() {
   await waitFor();
 
   if (!localStorage.getItem("orderData")) {
-    const [orderArrData] = Object.values(ENUM_OrderDATA);
+    const [orderArrData] = Object.values(ENUM_ORDER_DATA);
 
     localStorage.setItem("orderData", JSON.stringify(orderArrData));
   }
@@ -56,15 +101,6 @@ export async function createOrderData({
 }) {
   await waitFor();
 
-  const orderData = {
-    orderId,
-    drinkId,
-    orderConfig,
-    numbers,
-    user,
-    comment,
-  };
-
   const orderIndex = findOrderData(orderId);
 
   if (orderIndex !== -1) {
@@ -74,18 +110,21 @@ export async function createOrderData({
     };
   }
 
-  const DbOrderData = JSON.parse(localStorage.getItem("orderData")) || [];
-  const DbDrinkData = JSON.parse(localStorage.getItem("drinkData")) || [];
-  const chooseDrinkData = DbDrinkData?.map((item) => item.productList)
-    ?.flat()
-    ?.find((product) => product.id === drinkId);
-
-  const { id, ...otherDrinkData } = chooseDrinkData;
-
-  const updateData = {
-    ...otherDrinkData,
-    ...orderData,
+  const orderData = {
+    orderId,
+    drinkId,
+    numbers,
+    user,
+    comment,
   };
+
+  const DbOrderData = JSON.parse(localStorage.getItem("orderData")) || [];
+  const editOrderData = editOrderDataHandler(drinkId, orderConfig);
+  const updateData = {
+    ...orderData,
+    ...editOrderData,
+  };
+
   DbOrderData.push(updateData);
   localStorage.setItem("orderData", JSON.stringify(DbOrderData));
 
@@ -104,18 +143,10 @@ export async function updateOrderData({
   user,
   comment,
 }) {
+  console.log("drinkId", drinkId);
+  console.log("orderId", drinkId);
   await waitFor();
 
-  const orderData = {
-    orderId,
-    drinkId,
-    orderConfig,
-    numbers,
-    user,
-    comment,
-  };
-
-  const DbOrderData = JSON.parse(localStorage.getItem("orderData")) || [];
   const orderIndex = findOrderData(orderId);
 
   if (orderIndex === -1) {
@@ -125,8 +156,22 @@ export async function updateOrderData({
     };
   }
 
-  DbOrderData[orderIndex] = { ...DbOrderData[orderIndex], ...orderData };
-  const updateData = DbOrderData[orderIndex];
+  const orderData = {
+    orderId,
+    drinkId,
+    numbers,
+    user,
+    comment,
+  };
+
+  const editOrderData = editOrderDataHandler(drinkId, orderConfig);
+  const updateData = {
+    ...orderData,
+    ...editOrderData,
+  };
+
+  const DbOrderData = JSON.parse(localStorage.getItem("orderData")) || [];
+  DbOrderData[orderIndex] = updateData;
 
   localStorage.setItem("orderData", JSON.stringify(DbOrderData));
 

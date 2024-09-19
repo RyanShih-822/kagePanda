@@ -5,6 +5,7 @@ import { useOrderContext } from "@/components/order";
 import { useDeleteOrderData } from "@/hooks";
 
 export default function OrderItem({
+  drinkId,
   orderId,
   price,
   optionConf,
@@ -16,6 +17,11 @@ export default function OrderItem({
   comment,
 }) {
   const { iceLevels, sugar, toppings } = orderConfig || {};
+  const editOrderConfig = {
+    iceLevels: iceLevels.title,
+    sugar: sugar.title,
+    toppings: toppings.title,
+  };
 
   const { fetchHandler: deleteOrderDataHandler } = useDeleteOrderData(orderId);
   const { dispatch } = useOrderContext();
@@ -27,12 +33,12 @@ export default function OrderItem({
       component: (
         <ProductForm
           key={Math.random()}
-          id={orderId}
+          id={drinkId}
           price={price}
           image={image}
           optionConf={optionConf}
           values={numbers}
-          orderConfig={orderConfig}
+          orderConfig={editOrderConfig}
           orderId={orderId}
           user={user}
           comment={comment}
@@ -66,9 +72,9 @@ export default function OrderItem({
           </div>
           <div className="text-end">
             <div>{name}</div>
-            <div>{iceLevels}</div>
-            <div>{sugar}</div>
-            <div>{toppings}</div>
+            <div>{iceLevels.name}</div>
+            <div>{sugar.name}</div>
+            <div>{toppings.name}</div>
           </div>
         </Button>
         <Button

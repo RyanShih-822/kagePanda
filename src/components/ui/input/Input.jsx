@@ -1,5 +1,6 @@
-export default function Input({ className = "", id, ...props }) {
-  return (
-    <input className={`input  ${className}`} type="text" id={id} {...props} />
-  );
+const InputStyle = "input";
+
+export default function Input({ className = "", ...props }) {
+  const css = `${InputStyle} ${className}`;
+  return <input className={css} type="text" {...props} />;
 }

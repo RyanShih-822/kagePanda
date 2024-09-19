@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 import { Button, Textarea, Input } from "@/components/ui";
-import { InputNumber } from "@/components/inutNumber";
-import ProdouctRadios from "./ProdouctRadios";
+import { InputNumber } from "@/components/inputNumber";
+import ProductRadios from "./ProductRadios";
 
 import { useUpdateOrderData, useCreateOrderData } from "@/hooks";
 import { useOrderContext } from "@/components/order";
@@ -133,7 +133,7 @@ export default function ProductForm({
 
         <div className="my-4 d-flex flex-column gap-3">
           {optionConf?.map((item) => (
-            <ProdouctRadios
+            <ProductRadios
               key={item.configId}
               id={item.configId}
               optionTitle={item.title}

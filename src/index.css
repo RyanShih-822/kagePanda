@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
-@import url("./css/varlable.css");
+@import url("./css/variable.css");
 @import url("./css/components.css");
 @import url("./css//button.css");
 @import url("./css/dialog.css");
-@import url("./css/thirdlib.css");
+@import url("./css/third-lib.css");
 @import url("./css/border.css");
 @import url("./css/color.css");
 @import url("./css/cursor.css");
@@ -20,6 +20,7 @@
 @import url("./css/input.css");
 @import url("./css/opacity.css");
 @import url("./css/display.css");
+@import url("./css/spinner.css");
 
 * {
   box-sizing: border-box;

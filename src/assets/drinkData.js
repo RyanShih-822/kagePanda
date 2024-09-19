@@ -1,4 +1,4 @@
-export const ENUM_ICELEVELS = [
+export const ENUM_ICE = [
   { title: "normalIce", name: "正常冰" },
   { title: "lessIce", name: "少冰" },
   { title: "lightIce", name: "微冰" },
@@ -27,7 +27,7 @@ export const ENUM_TOPPINGS = [
   { title: "bobaPearls", name: "波霸珍珠" },
 ];
 
-export const ENUM_DRINKDATA = {
+export const ENUM_DRINK_DATA = {
   drinkData: [
     {
       title: "純茶",
@@ -39,7 +39,7 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e56d50_dRCuEvtA.png",
           price: 35,
           optionConf: [
-            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICELEVELS },
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
             { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
             { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
           ],
@@ -51,7 +51,7 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e53f56_2XlxcwY7.jpg",
           price: 30,
           optionConf: [
-            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICELEVELS },
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
             { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
             { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
           ],
@@ -63,7 +63,7 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e56e7f_ul6DAesX.png",
           price: 30,
           optionConf: [
-            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICELEVELS },
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
             { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
             { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
           ],
@@ -75,7 +75,7 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e56c36_EjITfB0A.png",
           price: 30,
           optionConf: [
-            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICELEVELS },
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
             { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
             { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
           ],
@@ -87,7 +87,7 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e56e98_bKmnUqXE.png",
           price: 45,
           optionConf: [
-            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICELEVELS },
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
             { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
             { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
           ],
@@ -99,7 +99,7 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e56bd1_MOTzytbE.png",
           price: 30,
           optionConf: [
-            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICELEVELS },
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
             { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
             { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
           ],
@@ -111,7 +111,7 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e56d9b_kIqOnoeP.png",
           price: 30,
           optionConf: [
-            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICELEVELS },
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
             { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
             { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
           ],
@@ -123,7 +123,7 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e7cec8_J4f0ptX3.png",
           price: 30,
           optionConf: [
-            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICELEVELS },
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
             { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
             { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
           ],
@@ -135,7 +135,7 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e56ed7_E5eWoiQg.png",
           price: 30,
           optionConf: [
-            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICELEVELS },
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
             { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
             { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
           ],
@@ -147,7 +147,7 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e7ce90_Z6oJ5sjp.png",
           price: 30,
           optionConf: [
-            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICELEVELS },
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
             { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
             { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
           ],
@@ -159,7 +159,7 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e7ce90_Z6oJ5sjp.png",
           price: 30,
           optionConf: [
-            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICELEVELS },
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
             { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
             { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
           ],
@@ -176,7 +176,7 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e58070_P4EOC5ZM.png",
           price: 60,
           optionConf: [
-            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICELEVELS },
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
             { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
             { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
           ],
@@ -188,7 +188,7 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e57e9b_YEzVrDJK.png",
           price: 45,
           optionConf: [
-            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICELEVELS },
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
             { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
             { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
           ],
@@ -200,7 +200,7 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e57fbe_13BrHTeA.png",
           price: 55,
           optionConf: [
-            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICELEVELS },
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
             { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
             { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
           ],
@@ -212,7 +212,7 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e57f68_buqf1G5p.png",
           price: 55,
           optionConf: [
-            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICELEVELS },
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
             { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
             { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
           ],
@@ -224,7 +224,7 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e57ee7_GrQz07LR.png",
           price: 55,
           optionConf: [
-            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICELEVELS },
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
             { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
             { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
           ],
@@ -236,7 +236,7 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e58011_lqf3PCnV.png",
           price: 60,
           optionConf: [
-            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICELEVELS },
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
             { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
             { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
           ],
@@ -248,7 +248,7 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e580a6_ShsikJQX.png",
           price: 65,
           optionConf: [
-            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICELEVELS },
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
             { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
             { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
           ],
@@ -260,7 +260,7 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e57e5e_hOuTFgvk.png",
           price: 40,
           optionConf: [
-            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICELEVELS },
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
             { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
             { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
           ],
@@ -272,7 +272,7 @@ export const ENUM_DRINKDATA = {
             "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e57f1f_sIRAc5UC.png",
           price: 40,
           optionConf: [
-            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICELEVELS },
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
             { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
             { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
           ],
@@ -282,6 +282,6 @@ export const ENUM_DRINKDATA = {
   ],
 };
 
-export const ENUM_OrderDATA = {
+export const ENUM_ORDER_DATA = {
   orderData: [],
 };

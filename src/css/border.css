@@ -7,7 +7,7 @@
 }
 
 .border-secondary {
-  border: 1px solid var(--secnondary-color);
+  border: 1px solid var(--secondary-color);
 }
 
 .border-dark {

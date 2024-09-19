@@ -4,13 +4,13 @@ const defaultDialogData = { title: "", component: null };
 
 export default function useDialog() {
   const ref = useRef(null);
-  const [dialogData, setDialgData] = useState(defaultDialogData);
+  const [dialogData, setDialogData] = useState(defaultDialogData);
 
   function onOpen(data) {
     if (!ref?.current) {
       return;
     }
-    setDialgData(data);
+    setDialogData(data);
     ref?.current?.showModal();
   }
 
@@ -18,7 +18,7 @@ export default function useDialog() {
     if (!ref?.current) {
       return;
     }
-    setDialgData(defaultDialogData);
+    setDialogData(defaultDialogData);
     ref?.current?.close();
   }
 

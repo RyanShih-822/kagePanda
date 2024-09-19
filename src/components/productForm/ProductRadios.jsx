@@ -1,6 +1,6 @@
 import { Radio } from "@/components/ui";
 
-export default function ProdouctRadios({
+export default function ProductRadios({
   optionTitle,
   optionDataArr,
   id,
@@ -14,12 +14,12 @@ export default function ProdouctRadios({
       <legend>
         <h3>{optionTitle}</h3>
       </legend>
-      <ul className="d-flex justify-content-between flex-wrap gap-3">
+      <ul className="d-flex justify-content-between flex-wrap ">
         {optionDataArr?.map(({ title, name }) => (
-          <li key={title} className="position-relative flex-basis-1/3">
+          <li key={title} className="position-relative basis-1/3 p-4">
             <label
               className={`w-full text-center ${
-                chooseOption === title ? "btn-primary" : "btn-gray"
+                title === chooseOption ? "btn-primary" : "btn-gray"
               }`}
               htmlFor={title}
             >

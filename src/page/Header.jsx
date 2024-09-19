@@ -3,18 +3,18 @@ export default function Header() {
     <header className="header">
       <div className="container justify-content-between">
         <h1>
-          <a href="">sites logo</a>
+          <a href="#">Logo</a>
         </h1>
         <nav>
           <ul className="d-flex gap-3">
             <li>
-              <a href="">home</a>
+              <a href="#">home</a>
             </li>
             <li>
-              <a href="">menu</a>
+              <a href="#">menu</a>
             </li>
             <li>
-              <a href="">order</a>
+              <a href="#">order</a>
             </li>
           </ul>
         </nav>

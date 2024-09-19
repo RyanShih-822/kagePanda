@@ -19,6 +19,21 @@
 .mr-0 {
   margin-right: 0px;
 }
+.mr-1 {
+  margin-right: calc(var(--spacer) * 1);
+}
+
+.mr-2 {
+  margin-right: calc(var(--spacer) * 2);
+}
+
+.mr-3 {
+  margin-right: calc(var(--spacer) * 3);
+}
+
+.mr-4 {
+  margin-right: calc(var(--spacer) * 4);
+}
 
 .mb-0 {
   margin-bottom: 0px;

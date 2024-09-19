@@ -1,3 +1,5 @@
-export default function Textarea({ className = "", id, ...props }) {
-  return <textarea className={`textarea ${className}`} id={id} {...props} />;
+const textareaStyle = "textarea";
+export default function Textarea({ className = "", ...props }) {
+  const css = `${textareaStyle} ${className}`;
+  return <textarea className={css} {...props} />;
 }

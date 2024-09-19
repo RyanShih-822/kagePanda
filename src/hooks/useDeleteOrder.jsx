@@ -2,7 +2,7 @@ import useQuery from "./useQuery";
 
 import { deleteOrderData } from "@/models/products";
 
-async function deleteOrderDataHanlder(orderId) {
+async function deleteOrderDataHandler(orderId) {
   const data = await deleteOrderData(orderId);
 
   return data;
@@ -10,7 +10,7 @@ async function deleteOrderDataHanlder(orderId) {
 
 export default function useDeleteOrderData(orderId) {
   return useQuery({
-    queryFn: () => deleteOrderDataHanlder(orderId),
+    queryFn: () => deleteOrderDataHandler(orderId),
     enabled: false,
   });
 }

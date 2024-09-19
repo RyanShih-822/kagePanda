@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui";
-import ProductItem from "./PrroductItem";
+import ProductItem from "./ProductItem";
 
 export default function ProductList({ title, productList }) {
   return (

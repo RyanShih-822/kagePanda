@@ -1,2 +1,2 @@
-export { default as ProductForm } from "./ProdudctForm";
-export { default as ProdouctRadios } from "./ProdouctRadios";
+export { default as ProductForm } from "./ProductForm";
+export { default as ProductRadios } from "./ProductRadios";

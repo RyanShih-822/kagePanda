@@ -11,7 +11,7 @@
 }
 
 .bg-secondary {
-  background-color: var(--secnondary-color);
+  background-color: var(--secondary-color);
 }
 
 .bg-light {
@@ -27,7 +27,7 @@
 }
 
 .text-secondary {
-  color: var(--secnondary-color);
+  color: var(--secondary-color);
 }
 
 .text-gray {

@@ -1,6 +1,6 @@
 .btn,
 .btn-primary,
-.btn-sceondary,
+.btn-secondary,
 .btn-gray,
 .btn-transparent {
   display: block;
@@ -12,7 +12,7 @@
 
 .btn:disabled,
 .btn-primary:disabled,
-.btn-sceondary:disabled,
+.btn-secondary:disabled,
 .btn-gray:disabled,
 .btn-transparent:disabled {
   background-color: var(--gray-color);
@@ -51,7 +51,7 @@
 }
 
 .btn-secondary {
-  background-color: var(--secnondary-color);
+  background-color: var(--secondary-color);
   color: var(--light-color);
 }
 
