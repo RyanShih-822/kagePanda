@@ -16,9 +16,12 @@ export default function ProductRadios({
       </legend>
       <ul className="d-flex justify-content-between flex-wrap ">
         {optionDataArr?.map(({ title, name }) => (
-          <li key={title} className="position-relative basis-1/3 p-4">
+          <li
+            key={title}
+            className="position-relative basis-1/3 p-4 overflow-hidden"
+          >
             <label
-              className={`w-full text-center ${
+              className={`w-full text-center  ${
                 title === chooseOption ? "btn-primary" : "btn-gray"
               }`}
               htmlFor={title}

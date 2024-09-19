@@ -49,8 +49,10 @@ export default function Order() {
       </ul>
 
       <div>
-        <h3>Total</h3>
-        <h3>${totalPrice}</h3>
+        <div className="d-flex">
+          <h3>總計</h3>
+          <h3>${totalPrice}</h3>
+        </div>
         <Button className="btn-primary w-full">付款</Button>
       </div>
     </Card>

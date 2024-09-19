@@ -20,12 +20,11 @@ export default function Service() {
   return (
     <section className="w-full d-flex flex-wrap justify-content-between align-items-start gap-4">
       <DialogContextProvider>
+        {drinkData?.map(({ title, productList }) => (
+          <ProductList key={title} title={title} productList={productList} />
+        ))}
         <OrderContextProvider>
-          {drinkData?.map(({ title, productList }) => (
-            <ProductList key={title} title={title} productList={productList} />
-          ))}
           <Order />
-
           <Dialog />
         </OrderContextProvider>
       </DialogContextProvider>

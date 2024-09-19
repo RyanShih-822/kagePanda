@@ -3,7 +3,7 @@ import { Card, Button } from "@/components/ui";
 export default function DiscountInfo() {
   return (
     <Card className="w-full">
-      <ul className="d-flex gap-4 flex-wrap">
+      <ul className="d-flex gap-4 justify-content-center flex-wrap">
         {Array(4)
           .fill("")
           .map(() => (

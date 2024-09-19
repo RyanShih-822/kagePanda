@@ -13,6 +13,7 @@ export default function ProductItem({
 }) {
   const { onOpen } = useDialogContext();
 
+  console.log("rerender");
   function clickDialogHandler() {
     onOpen({
       title: name,

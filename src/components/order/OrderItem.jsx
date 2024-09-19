@@ -62,23 +62,25 @@ export default function OrderItem({
 
   return (
     <>
-      <li className="d-flex gap-4 mb-4">
+      <li className="d-flex gap-4 mb-4 justify-content-center">
         <Button
-          className="d-flex justify-content-between w-full btn-transparent p-2"
+          className="flex-fill d-flex gap-4 align-items-center justify-content-between p-4 overflow-hidden"
           onClick={clickDialogHandler}
         >
-          <div className="w-24 h-24">
+          <div className="basis-24 h-24">
             <img src={image} alt="訂單" />
           </div>
-          <div className="text-end">
-            <div>{name}</div>
-            <div>{iceLevels.name}</div>
-            <div>{sugar.name}</div>
-            <div>{toppings.name}</div>
+          <div className="basis-1/3 single-ellipsis">{user}</div>
+
+          <div className="basis-2/3 text-end overflow-hidden">
+            <div className="single-ellipsis">{name}</div>
+            <div className="single-ellipsis">{iceLevels.name}</div>
+            <div className="single-ellipsis">{sugar.name}</div>
+            <div className="single-ellipsis">{toppings.name}</div>
           </div>
         </Button>
         <Button
-          className="btn-secondary whitespace-nowrap align-self-cetner"
+          className=" btn-secondary whitespace-nowrap align-self-center"
           onClick={deleteOrderHandler}
         >
           垃圾桶
