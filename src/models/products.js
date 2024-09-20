@@ -16,7 +16,6 @@ function getChooseDrinkData(drinkId) {
 function editOrderDataHandler(drinkId, orderConfig) {
   const chooseDrinkData = getChooseDrinkData(drinkId);
 
-  console.log("chooseDrinkData", chooseDrinkData);
   const { id, optionConf, ...otherDrinkData } = chooseDrinkData;
   const defaultEditOrderConf = {
     iceLevels: {
@@ -143,8 +142,6 @@ export async function updateOrderData({
   user,
   comment,
 }) {
-  console.log("drinkId", drinkId);
-  console.log("orderId", drinkId);
   await waitFor();
 
   const orderIndex = findOrderData(orderId);
