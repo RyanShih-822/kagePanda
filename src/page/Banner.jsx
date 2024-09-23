@@ -3,7 +3,7 @@ import { Card, Carousel } from "@/components/ui";
 export default function Banner() {
   return (
     <Card htmlTag="section" className="w-full flex-row p-0 overflow-hidden">
-      <div className="d-flex flex-fill align-items-center basis-1/3">
+      <div className="d-flex flex-auto align-items-center basis-1/3">
         <a href="#">
           <img
             src="https://ap-south-1.linodeobjects.com/nidin-production-v3/store/icons/b_1681_icon_20230309_165110_0215b.png"

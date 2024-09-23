@@ -279,6 +279,47 @@ export const ENUM_DRINK_DATA = {
         },
       ],
     },
+    {
+      title: "香醇茶飲",
+      productList: [
+        {
+          id: "flavoredTea001",
+          name: "蜜桃清香紅茶",
+          image:
+            "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e56d50_mXPTQ1dC.png",
+          price: 40,
+          optionConf: [
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
+            { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
+            { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
+          ],
+        },
+        {
+          id: "flavoredTea002",
+          name: "檸檬清新綠茶",
+          image:
+            "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e53f56_TYZtUipC.jpg",
+          price: 35,
+          optionConf: [
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
+            { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
+            { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
+          ],
+        },
+        {
+          id: "flavoredTea003",
+          name: "薰衣草香草茶",
+          image:
+            "https://cdn-order-v3.nidin.shop/product/images/6/b6_65e56e7f_qSMPq8Fq.png",
+          price: 45,
+          optionConf: [
+            { configId: "iceLevels", title: "溫度", dataArr: ENUM_ICE },
+            { configId: "sugar", title: "甜度", dataArr: ENUM_SUGAR },
+            { configId: "toppings", title: "加料", dataArr: ENUM_TOPPINGS },
+          ],
+        },
+      ],
+    },
   ],
 };
 

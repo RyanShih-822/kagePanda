@@ -8,7 +8,7 @@ export default function Carousel() {
 
   return (
     <div
-      className="embla flex-fill basis-2/3"
+      className="embla flex-auto basis-2/3"
       style={{ height: "240px" }}
       ref={emblaRef}
     >

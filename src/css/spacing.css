@@ -16,6 +16,10 @@
   margin-top: 0px;
 }
 
+.mt-auto {
+  margin-top: auto;
+}
+
 .mr-0 {
   margin-right: 0px;
 }

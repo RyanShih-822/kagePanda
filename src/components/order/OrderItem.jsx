@@ -64,7 +64,7 @@ export default function OrderItem({
     <>
       <li className="d-flex gap-4 mb-4 justify-content-center">
         <Button
-          className="flex-fill d-flex gap-4 align-items-center justify-content-between p-4 overflow-hidden"
+          className="flex-auto d-flex gap-4 align-items-center justify-content-between p-4 overflow-hidden"
           onClick={clickDialogHandler}
         >
           <div className="basis-24 h-24">

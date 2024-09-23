@@ -15,11 +15,11 @@
 }
 
 .flex-1 {
-  flex: 1 1 0;
+  flex: 1;
 }
 
-.flex-fill {
-  flex: 1 1 auto;
+.flex-auto {
+  flex: auto;
 }
 
 .justify-content-start {
@@ -46,6 +46,9 @@
   align-items: flex-start;
 }
 
+.align-self-start {
+  align-self: start;
+}
 .align-self-center {
   align-self: center;
 }

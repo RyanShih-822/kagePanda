@@ -4,6 +4,7 @@ import { useGetOrderData } from "@/hooks";
 import { useOrderContext } from "./OrderContext";
 
 import { Card, Button, Spinner } from "@/components/ui";
+import Aside from "./Aside";
 import OrderItem from "./OrderItem";
 
 export default function Order() {
@@ -25,22 +26,22 @@ export default function Order() {
 
   if (isLoading) {
     return (
-      <Card htmlTag="aside" className="aside">
+      <Aside>
         <Spinner />
-      </Card>
+      </Aside>
     );
   }
 
   if (orderData?.length === 0) {
     return (
-      <Card htmlTag="aside" className="aside">
+      <Aside>
         <div>尚無訂單</div>
-      </Card>
+      </Aside>
     );
   }
 
   return (
-    <Card htmlTag="aside" className="aside">
+    <Aside>
       <h3>您的訂單</h3>
       <ul className="py-4">
         {orderData?.map(({ orderId, ...item }) => (
@@ -48,13 +49,13 @@ export default function Order() {
         ))}
       </ul>
 
-      <div>
+      <div className="mt-auto">
         <div className="d-flex">
           <h3>總計</h3>
           <h3>${totalPrice}</h3>
         </div>
         <Button className="btn-primary w-full">付款</Button>
       </div>
-    </Card>
+    </Aside>
   );
 }

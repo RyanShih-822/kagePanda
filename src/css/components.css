@@ -54,13 +54,14 @@
 }
 
 .aside {
-  height: 100%;
-  width: 352px;
+  position: sticky;
+  top: 64px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .aside {
-    display: none;
+    margin-top: auto;
+    bottom: 0;
   }
 }
 

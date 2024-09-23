@@ -33,13 +33,15 @@ export default function ProductItem({
     <li className={className}>
       <Button
         onClick={clickDialogHandler}
-        className="btn-transparent m-3 p-4  w-full d-flex justify-content-between align-items-center"
+        className="btn-transparent m-3 p-4 w-full d-flex justify-content-between align-items-center gap-4"
       >
-        <div>
+        <div className="basis-24">
           <img className="bg-gray" src={image} alt="商品圖片" />
         </div>
-        <h3 className="my-3 ">{name}</h3>
-        <div className="d-flex">${parseInt(price)}</div>
+        <h3 className="basis-2/3 my-3 single-ellipsis">{name}</h3>
+        <div className="basis-1/3 d-flex single-ellipsis">
+          ${parseInt(price)}
+        </div>
       </Button>
     </li>
   );

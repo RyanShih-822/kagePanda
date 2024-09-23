@@ -3,7 +3,7 @@ import ProductItem from "./ProductItem";
 
 export default function ProductList({ title, productList }) {
   return (
-    <Card className="flex-fill">
+    <Card className="overflow-hidden">
       <h2 className="text-primary">{title}</h2>
       <ul className="py-4">
         {productList?.map(({ id, ...item }, index) => (
