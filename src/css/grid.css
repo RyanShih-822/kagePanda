@@ -25,3 +25,7 @@
 .row-end-2 {
   grid-row-start: 2;
 }
+
+.col-span-full {
+  grid-column: 1 / -1;
+}

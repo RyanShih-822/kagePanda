@@ -18,9 +18,9 @@ export default function Service() {
   }
 
   return (
-    <section className="w-full d-grid grid-cols-3 gap-4 position-relative">
+    <section className="menu-section w-full gap-4 position-relative">
       <DialogContextProvider>
-        <div className="col-start-1 col-end-3 d-grid grid-cols-2 gap-4">
+        <div className="drink-container gap-4">
           {drinkData?.map(({ title, productList }) => (
             <ProductList key={title} title={title} productList={productList} />
           ))}
